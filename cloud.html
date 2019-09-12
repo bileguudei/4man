@@ -1,0 +1,32 @@
+<html>
+    <head>
+
+    </head>
+    <body>
+        <canvas id="myCanvas" width="2000" height="1000" style="border:5px solid #c4ceee;">
+        </canvas>
+    </body>
+    <script>
+        let canvas = document.getElementById("myCanvas");
+        let ctx = canvas.getContext("2d");
+        let img = new Image;
+        let x = 888;
+        let y = 50;
+
+        img.src = 'cloud.png'; 
+        
+        img.width = 100;
+        img.height = 100;
+
+        setInterval(() => {
+
+            x--;
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img, x, y, img.width, img.height);
+
+        }, 10);
+        img.onload = function() {
+            ctx.drawImage(img, x, y, img.width, img.height);
+        };
+    </script>
+</html>
