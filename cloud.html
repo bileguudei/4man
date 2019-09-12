@@ -3,30 +3,36 @@
 
     </head>
     <body>
-        <canvas id="myCanvas" width="2000" height="1000" style="border:5px solid #c4ceee;">
+        <canvas id="myCanvas" width="3000" height="1200" style="border:5px solid darkgray;">
         </canvas>
     </body>
     <script>
         let canvas = document.getElementById("myCanvas");
         let ctx = canvas.getContext("2d");
         let img = new Image;
+        let img1 = new Image;
         let x = 888;
         let y = 50;
 
-        img.src = 'cloud.png'; 
+        img.src = 'cloud.png';
+        img1.src = 'ulanbatar.jpeg';
         
         img.width = 100;
         img.height = 100;
 
-        setInterval(() => {
+        img1.height = 1200;
+        img1.width = 3000;
+    
 
+        setInterval(() => {
+            
             x--;
             ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.drawImage(img1, x, y, img1.width, img1.height);
             ctx.drawImage(img, x, y, img.width, img.height);
+          
 
         }, 10);
-        img.onload = function() {
-            ctx.drawImage(img, x, y, img.width, img.height);
-        };
+      
     </script>
 </html>
