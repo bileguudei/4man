@@ -1,17 +1,23 @@
 <html>
 
 <head>
+    
     <style>
+        body{
+            display: flex;
+            justify-content: center;
+            
+        }
         .but1 {
             background-color: black;
             border: none;
             color: white;
-            padding: 15px 32px;
+            padding: 30px 30px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 4px 2px;
+            margin: 10px 10px;
             cursor: pointer;
         }
 
@@ -19,12 +25,12 @@
             background-color: white;
             border: none;
             color: black;
-            padding: 15px 32px;
+            padding: 30px 30px;
             text-align: center;
             text-decoration: none;
             display: inline-block;
             font-size: 16px;
-            margin: 4px 2px;
+            margin: 10px 10px;
             cursor: pointer;
         }
     </style>
@@ -34,7 +40,9 @@
 
     <button id="but1" onclick="start(0)">Night mode</button>
     <button id="but2" onclick="start(1)">Light mode</button>
-    <canvas id="cvs" width="3000" height="1000" style="border:5px solid black;"></canvas>
+    <button id="butperson1" onclick="start(2)">Boy</button>
+    <button id="butperson2" onclick="start(3)">Girl</button>
+    <canvas id="cvs" width="2000" height="1000" style="border:5px solid black;"></canvas>
 
 </body>
 <script>
@@ -47,7 +55,7 @@
     let img1 = new Image;
 
     /* land, zvleg 4shirheg */
-    let img2 = new Image, img21 = new Image, img22 = new Image, img23 = new Image;
+    let img2 = new Image, img21 = new Image, img22 = new Image, img23 = new Image, imgPe1 = new Image;
     function init() {
         /* cloud bairshlin hemjee */
         x = 1800;
@@ -66,6 +74,8 @@
         y22 = 700;
         x23 = -1000;
         y23 = 700;
+        Xpe = -100;
+        Ype = 250;
 
         /* buh oruulsan zurgin holboos */
         img.src = 'cloud.png';
@@ -76,6 +86,7 @@
         img21.src = 'ground.png';
         img22.src = 'ground.png';
         img23.src = 'ground.png';
+        imgPe1.src = 'boy.svg';
 
         /* cloud helber hemjee */
         img.width = 500;
@@ -89,6 +100,10 @@
         img2.height = 400;
         img2.width = 1200;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        /* boy girl hemjee */
+        imgPe1.width = 250;
+        imgPe1.height = 500;
     }
 
     init();
@@ -105,6 +120,8 @@
         img22.src = mode == 0 ? 'nightland.svg' :'ground.png';
         img23.src = mode == 0 ? 'nightland.svg' :'ground.png';
 
+        imgPe1.src = mode == 2 ? 'boy.svg' :'girl.png';
+
     }
     
     setInterval(() => {
@@ -115,10 +132,15 @@
         x21--;
         x22--;
         x23--;
+        Xpe++;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
+
         /* background oruulsan hseg */
         ctx.drawImage(img1, 0, 0, img1.width, img1.height);
+
+        /* boy girl oruulsan ni */
+        ctx.drawImage(imgPe1, Xpe, Ype, imgPe1.width, imgPe1.height);
 
         /* land zulegni orulsan hseg */
         ctx.drawImage(img2, x2, y2, img2.width, img2.height);
@@ -131,6 +153,7 @@
         ctx.drawImage(img0, x0, y0, img.width, img.height);
         ctx.drawImage(img01, x01, y01, img.width + 100, img.height + 100);
 
+        
     }, 100);
 </script>
 
