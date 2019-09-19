@@ -1,0 +1,157 @@
+<html>
+
+<head>
+    <style>
+        #canvas {
+            border: solid;
+        }
+    </style>
+</head>
+
+
+<body>
+
+
+    <h1 id="score">0</h1>
+
+    <canvas id='canvas' width='550' height='400'></canvas>
+
+    <hr />
+
+    <button onclick="startGame()" id="startButton">Restart</button>
+
+
+
+    <input type="text" ; id="scoore" ; value=>
+    <script>
+
+        startGame = () => {
+
+            // document.getElementById('scoore').style.visibility = "hidden";
+            // document.getElementById("startButton").style.visibility = "hidden";
+            stopGame = () => {
+                clearInterval(drawInterval);
+                clearInterval(scoreInterval);
+                document.getElementById("startButton").style.visibility = "visible";
+                document.getElementById('scoore').style.visibility = "visible";
+            }
+
+
+            var x = 500, y = 300;
+            var py = 300;
+
+            let width1 = 50, height1 = 50;
+            let width = 50, height = 50;
+
+            function drawPerson(x, y, w, h) {
+                var canvas = document.getElementById('canvas');
+                var ctx = canvas.getContext('2d');
+                ctx.fillStyle = "rgba(255, 0, 0)";
+                ctx.fillRect(x, y, w, h);
+            }
+
+
+            function checkCollision() {
+                if((width1 >= x && x+width > 0 && 350 - py - height1 <= height)){
+                    return true;
+                }
+                // function deereesUnajBhdaaMorgoldsnuu() {
+                //     return (width1 > x && x > 0 && 300 - py - height1 <= height) || (width1 > x + width && py + height1 > y);
+                // }
+
+                // if ((x < width1 && py == y) || (x < width1 && py + height1 <= y)){
+                //     return true;
+                // }
+                
+
+                return false;
+            }
+
+            function move() {
+                x--;
+            }
+
+            function draw() {
+                var canvas = document.getElementById('canvas');
+                var ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, 550, 400);
+                // manai hun
+                drawPerson(0, py, width1, height1);
+                // ailiin hun
+                drawPerson(x, y, width, height);
+
+                if (checkCollision()) {
+                    stopGame();
+                }
+
+                move();
+  
+            }
+
+            let usersen = 0;
+            let gravity = 0.05;
+            let score = 0;
+
+            var scoreInterval = setInterval(() => {
+                score++;
+                document.getElementById("score").innerHTML = score;
+            }, 1000);
+
+
+
+
+
+            function jump() {
+                usersen = 1;
+                let speed = 3.2;
+                let goingUp = true;
+
+                let a = setInterval(() => {
+                  
+                    if (goingUp) {
+                        speed = Math.max(0, speed - gravity);
+                        if (speed == 0)
+                            goingUp = false;
+                        else
+                            py = Math.min(300, py - speed);
+                    } else {
+                        speed = speed + gravity;
+                        py = Math.min(300, py + speed);
+                    }
+
+                    if (py == 300) {
+                        clearInterval(a);
+                        usersen = 0;
+                    }
+                }, 8.1);
+                
+            }
+            
+            document.onkeyup = function (event) {
+                if (event.key == "q") {
+                    console.log("JUMP");
+                    if (usersen == 0)
+                        jump();
+                }
+            }
+            
+
+            var drawInterval = setInterval(() => {
+
+                if (x < -50) {
+
+                    x = 500;
+
+                    draw();
+                }
+                draw();
+            }, 2
+            );
+
+        };
+
+        startGame();
+    </script>
+</body>
+
+</html>
