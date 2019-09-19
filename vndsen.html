@@ -41,7 +41,9 @@
     <button id="but2" onclick="start(1)">Light mode</button>
     <button id="butperson1" onclick="start(2)">Boy</button>
     <button id="butperson2" onclick="start(3)">Girl</button>
-    <canvas id="cvs" width="2000" height="1000" style="border:5px solid black;"></canvas>
+    <canvas id="cvs" width="2000" height="850" style="border:5px solid black;"></canvas>
+    
+
 
 </body>
 
@@ -55,7 +57,7 @@
     let img1 = new Image;
 
     /* land, zvleg 4shirheg */
-    let img2 = new Image, img21 = new Image, img22 = new Image, img23 = new Image, imgPe1 = new Image, imgCar = new Image;
+    let img2 = new Image, img21 = new Image, img22 = new Image, img23 = new Image, imgPe1 = new Image, imgCar = new Image, imgDog = new Image;
     function init() {
         /* cloud bairshlin hemjee */
         x = 1800;
@@ -75,11 +77,15 @@
         x23 = -1000;
         y23 = 700;
         Xpe = 100;
-        Ype = 450;
+        Ype = 350;
 
         /* car bairshil */
         Xcar = 1000;
-        Ycar = 200;
+        Ycar = 100;
+
+        /* dog bairshil */ 
+        Xdog = 1500;
+        Ydog = 500;
 
         /* buh oruulsan zurgin holboos */
         img.src = 'cloud.png';
@@ -92,6 +98,7 @@
         img23.src = 'ground.png';
         imgPe1.src = 'boy.svg';
         imgCar.src = 'car.png';
+        imgDog.src = 'dog2.png';
 
 
         /* cloud helber hemjee */
@@ -99,8 +106,8 @@
         img.height = 200;
 
         /* background zuragni hemjee */
-        img1.height = 1000;
-        img1.width = 3000;
+        img1.height = 850;
+        img1.width = 2000;
 
         /* land, zvlegnii hemjee */
         img2.height = 300;
@@ -114,6 +121,10 @@
         /* car hemjee */
         imgCar.width = 1200;
         imgCar.height = 1100;
+
+        /* dog hemjee */ 
+        imgDog.width = 400;
+        imgDog.height = 300;
     }
 
     init();
@@ -143,6 +154,7 @@
         x22--;
         x23--;
         Xcar--;
+        Xdog = Xdog - 3; 
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
@@ -165,7 +177,10 @@
 
         /* car orulsan hseg */
         ctx.drawImage(imgCar, Xcar, Ycar, imgCar.width, imgCar.height);
-        
+
+        /* dog orulsan hseg */ 
+        ctx.drawImage(imgDog, Xdog, Ydog, imgDog.width, imgDog.height);
+
         /* boy girl oruulsan ni */
         ctx.drawImage(imgPe1, Xpe, Ype, imgPe1.width, imgPe1.height);
         
