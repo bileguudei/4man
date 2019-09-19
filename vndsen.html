@@ -35,7 +35,6 @@
         }
     </style>
 </head>
-
 <body>
 
     <button id="but1" onclick="start(0)">Night mode</button>
@@ -45,6 +44,7 @@
     <canvas id="cvs" width="2000" height="1000" style="border:5px solid black;"></canvas>
 
 </body>
+
 <script>
     let canvas = document.getElementById("cvs"), ctx = canvas.getContext("2d");
 
@@ -55,7 +55,7 @@
     let img1 = new Image;
 
     /* land, zvleg 4shirheg */
-    let img2 = new Image, img21 = new Image, img22 = new Image, img23 = new Image, imgPe1 = new Image;
+    let img2 = new Image, img21 = new Image, img22 = new Image, img23 = new Image, imgPe1 = new Image, imgCar = new Image;
     function init() {
         /* cloud bairshlin hemjee */
         x = 1800;
@@ -74,8 +74,12 @@
         y22 = 700;
         x23 = -1000;
         y23 = 700;
-        Xpe = -100;
-        Ype = 250;
+        Xpe = 100;
+        Ype = 450;
+
+        /* car bairshil */
+        Xcar = 1000;
+        Ycar = 200;
 
         /* buh oruulsan zurgin holboos */
         img.src = 'cloud.png';
@@ -87,23 +91,29 @@
         img22.src = 'ground.png';
         img23.src = 'ground.png';
         imgPe1.src = 'boy.svg';
+        imgCar.src = 'car.png';
+
 
         /* cloud helber hemjee */
-        img.width = 500;
-        img.height = 300;
+        img.width = 400;
+        img.height = 200;
 
         /* background zuragni hemjee */
         img1.height = 1000;
         img1.width = 3000;
 
         /* land, zvlegnii hemjee */
-        img2.height = 400;
-        img2.width = 1200;
+        img2.height = 300;
+        img2.width = 1100;
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         /* boy girl hemjee */
         imgPe1.width = 250;
         imgPe1.height = 500;
+        
+        /* car hemjee */
+        imgCar.width = 1200;
+        imgCar.height = 1100;
     }
 
     init();
@@ -132,29 +142,37 @@
         x21--;
         x22--;
         x23--;
-        Xpe++;
+        Xcar--;
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         /* background oruulsan hseg */
         ctx.drawImage(img1, 0, 0, img1.width, img1.height);
 
-        /* boy girl oruulsan ni */
-        ctx.drawImage(imgPe1, Xpe, Ype, imgPe1.width, imgPe1.height);
+        
 
         /* land zulegni orulsan hseg */
         ctx.drawImage(img2, x2, y2, img2.width, img2.height);
         ctx.drawImage(img21, x21, y21, img2.width, img2.height);
         ctx.drawImage(img22, x22, y22, img2.width, img2.height);
         ctx.drawImage(img23, x23, y23, img2.width, img2.height);
+        
 
         /* cloud orulsan hseg */
         ctx.drawImage(img, x, y, img.width / 2, img.height / 2);
         ctx.drawImage(img0, x0, y0, img.width, img.height);
         ctx.drawImage(img01, x01, y01, img.width + 100, img.height + 100);
 
+        /* car orulsan hseg */
+        ctx.drawImage(imgCar, Xcar, Ycar, imgCar.width, imgCar.height);
+        
+        /* boy girl oruulsan ni */
+        ctx.drawImage(imgPe1, Xpe, Ype, imgPe1.width, imgPe1.height);
         
     }, 100);
+
+    
+    
 </script>
 
 </html>
