@@ -5,31 +5,6 @@
             display: flex;
             justify-content: center;
         }
-        .but1 {
-            background-color: black;
-            border: none;
-            color: white;
-            padding: 30px 30px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px 10px;
-            cursor: pointer;
-        }
-
-        .but2 {
-            background-color: white;
-            border: none;
-            color: black;
-            padding: 30px 30px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 10px 10px;
-            cursor: pointer;
-        }
         canvas {
             background-color: lightblue;
         }
@@ -40,8 +15,6 @@
     <button onclick="startGame()" id="startButton">Restart</button>
     <input type="text" ; id="scoore" ; value=>
     <canvas id="cvs" width="2000" height="850" style="border:5px solid black;"></canvas>
-    <button id="but1" onclick="start(0)">Night mode</button>
-    <button id="but2" onclick="start(1)">Light mode</button>
 </body>
         
 <script>
@@ -96,17 +69,18 @@
         ystatu = 300;   
 
         /* buh oruulsan zurgin holboos */
-        img.src = 'cloud.png';
-        img0.src = 'cloud.png';
-        img01.src = 'cloud.png';
-        img2.src = 'land.png';
-        img21.src = 'land.png';
-        img22.src = 'land.png';
-        img23.src = 'land.png';
-        imgPe1.src = 'boy.png';
-        imgCar.src = 'car.png'; 
-        imgDog.src = 'Dog.png';
-        imgStatu.src = 'Statu.png';
+        img.src = 'P_cloud.png';
+        img0.src = 'P_cloud.png';
+        img01.src = 'P_cloud.png';
+        img2.src = 'P_land.png';
+        img21.src = 'P_land.png';
+        img22.src = 'P_land.png';
+        img23.src = 'P_land.png';
+        imgPe1.src = 'P_boy.png';
+        imgCar.src = 'P_car.png'; 
+        imgDog.src = 'P_dog.png';
+        imgStatu.src = 'P_Statu.png';
+
 
 
         /* cloud helber hemjee */
@@ -137,10 +111,6 @@
     }
 
     init();
-    function start(mode) {
-        init();
-        img1.src = mode == 0 ? 'nightbackground.jpg' : 'ulanbatar.jpeg';
-    }
     
     setInterval(() => {
         x--;
