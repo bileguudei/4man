@@ -1,0 +1,73 @@
+<html>
+    <head>
+
+    </head>
+
+
+    <body>
+            <canvas id='canvas' width='550' height='400'></canvas>
+
+        <script>
+
+            var x = 300;
+
+            var y = 300;
+
+            
+                function draw() {
+                var canvas = document.getElementById('canvas');
+                var ctx = canvas.getContext('2d');
+                ctx.clearRect(0, 0, 550, 400);
+
+                ctx.fillStyle = "rgba(255, 0, 0)";
+
+                ctx.fillRect(x, y, 50, 50);
+
+                requestAnimationFrame(draw);
+            }
+            let user = 0;
+
+            let grav = 0.05;
+
+
+
+            function jump(){
+                user = 1;
+                let speed = 3.2;
+
+                let goingup = true;
+
+                let a = setInterval(() => {
+                  console.log("qwe");
+                  if (goingup) {
+                      speed = Math.max(0, speed - grav);
+                      if (speed == 0)
+                          goingup = false;
+                      else
+                          y = Math.min(300, y - speed);
+                  } else {
+                      speed = speed + grav;
+                      y = Math.min(300, y + speed);
+                  }
+
+                  if (y == 300) {
+                      clearInterval(a);
+                      user = 0;
+                  }
+              }, 8.1);
+              
+          }
+          
+          
+          document.onkeyup = function (event) {
+              if (event.key == "q") {
+                  console.log("JUMP");
+                  if (user == 0)
+                      jump();
+              }
+          }
+          draw();
+            
+        </script>
+    </body>
+</html>

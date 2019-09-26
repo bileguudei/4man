@@ -1,0 +1,47 @@
+<html>
+    <head>
+        <style>
+            body{
+                display: flex;
+                justify-content: center;
+            }
+            canvas {
+                background-color: lightblue;
+            }
+        </style>
+            
+    </head>
+    <body>
+        <canvas id="cvs" width="1950" height="850" style="border:5px solid black;"></canvas>
+    </body>
+    <script>
+        let canvas = document.getElementById("cvs"), ctx = canvas.getContext("2d");
+        ctx.fillStyle = "blue";
+
+        let imgboy = new Image, imggirl = new Image;
+        function init() {
+        /* hemjee */
+        x = 300;
+        y = 250;
+
+        /* oruulsan zurgin holboos */
+        imgboy.src = 'P_boylogin.png';
+        imggirl.src = 'P_girllogin.png';
+
+        /* helber hemjee */
+        imgboy.width = 450;
+        imgboy.height = 400;
+
+        
+    }
+    init();
+    setInterval(() => {
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        /* boy girl orulsan hseg */
+        ctx.drawImage(imgboy, x, y, imgboy.width, imgboy.height);
+        ctx.drawImage(imggirl, x + 900, y, imgboy.width, imgboy.height);
+       
+    }, 1000);
+    </script>
+</html>
