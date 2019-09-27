@@ -1,0 +1,39 @@
+@media only screen and (orientation:portrait){
+        
+    body{
+        height: 100vw;
+        transform: rotate(90deg);
+        display: flex;
+        justify-content: center;
+       } 
+    }
+    .but1 {
+        background-color: black;
+        border: none;
+        color: white;
+        padding: 30px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px 10px;
+        cursor: pointer;
+    }
+
+    .but2 {
+        background-color: white;
+        border: none;
+        color: black;
+        padding: 30px 30px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 10px 10px;
+        cursor: pointer;
+    }
+
+    .container {
+        width: 100%;
+    }
+}

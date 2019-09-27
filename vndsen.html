@@ -1,14 +1,7 @@
 <html>
 <head>
-    <style>
-        body{
-            display: flex;
-            justify-content: center;
-        }
-        canvas {
-            background-color: lightblue;
-        }
-    </style>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="css/rotation.css">
 </head>
 
 <body>
@@ -25,6 +18,9 @@
     /* cloud 3shirheg */
     let cloud = new Image; cloud.src = 'P_cloud.png';
 
+    /* shalbaag */
+    let dirt = new Image; dirt.src = 'P_shavar.png';
+
     /* background ub zurag */
     let img1 = new Image;
 
@@ -35,6 +31,7 @@
     imgLamp = new Image, imgGandan = new Image; 
 
     let clouds = [{x: 500, y: 50, w: 400, h: 200},{x: 1000, y: 50, w: 300, h: 150}, {x: 1500, y: 50, w: 400, h: 200}];
+    let dirts = [{x: 1800, y: 700, w: 80, h: 80}];
 
     function init() {
         /* land, zvlegnii bairshlin hemjee */
@@ -145,13 +142,38 @@
             clouds.push({x: xPos, y: yPos, w: w, h: h})
         }
     }
+
+    function drawDirts(){
+        if (dirts.length != 0 && dirts[0].x < 0){
+            dirts.shift();
+        }   
+
+        dirts.forEach(element => {
+            if (!(element.x + element.w < 0 && element.x > canvas.width)){
+                ctx.drawImage(dirt, element.x, element.y, element.w, element.h);
+            }
+        });
+
+        if (dirts.length < 1){
+            let xPos = 1800 + Math.floor(Math.random() * 100);
+            let yPos = 700 + Math.floor(Math.random() * 50);
+            let w = Math.floor(50 + Math.random() * 40);
+            let h = Math.floor(50 + Math.random() * 20);
+            dirts.push({x: xPos, y: yPos, w: w, h: h})
+        }
+    }
     
     setInterval(() => {
 
-        // cloud movement
+        // cloud movements
         clouds.forEach(element => {
             element.x -= 1;
         });
+
+        dirts.forEach(element => {
+            element.x -= 1;
+        });
+
 
         x2--;
         x21--;
@@ -181,6 +203,10 @@
 
         drawClouds();
 
+        /* DIRT */
+
+        drawDirts();
+
         /* lamp oruulsan heseg */
         ctx.drawImage(imgLamp, xlamp, ylamp, imgLamp.width, imgLamp.height);
 
@@ -197,7 +223,7 @@
         ctx.drawImage(imgPe1, Xpe, Ype, imgPe1.width, imgPe1.height);
 
         
-    }, 10);
+    }, 1);
 
     
     
