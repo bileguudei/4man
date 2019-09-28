@@ -37,19 +37,20 @@
     let img1 = new Image;
 
     /* land, zvleg 4shirheg */
-    let img2 = new Image, img21 = new Image, img22 = new Image, img23 = new Image,
-    imgPe1 = new Image, imgCar = new Image, imgDog = new Image, imgStatu = new Image,
+    let imgPe1 = new Image, imgCar = new Image, imgDog = new Image, imgStatu = new Image,
     imgShavar = new Image, imgNuh = new Image, imgBaishin = new Image, imgBaishin2 = new Image,
     imgLamp = new Image, imgGandan = new Image; 
 
     let clouds = [{x: 500, y: 50, w: 400, h: 200},{x: 1000, y: 50, w: 300, h: 150}, {x: 1500, y: 50, w: 400, h: 200}];
     let dirts = [{x: 1800, y: 700, w: 80, h: 80}];
+    let lands = [{x:1000, y: 700, w: 1000, h: 150}];
     //let statu = [{x: 1200, y: 300, w: 300, h: 400}];
     let boy = {x: 0, y: 0.6 * parseInt(canvas.height), height: 0.15 * parseInt(canvas.height), width: 0.2 * parseInt(canvas.height) * 1};
+    
 
     function init() {
         /* land, zvlegnii bairshlin hemjee */
-        x2 = 2000;
+        /*x2 = 2000;
         y2 = 700;
         x21 = 1000;
         y21 = 700;
@@ -58,7 +59,7 @@
         x23 = -1000;
         y23 = 700;
         Xpe = 100;
-        Ype = 350;
+        Ype = 350;*/
 
         /* baishin2 bairlal */
         xbaishin2 = 900;
@@ -85,11 +86,7 @@
         ylamp = 550;
 
         /* buh oruulsan zurgin holboos */
-        
-        img2.src = 'P_land.png';
-        img21.src = 'P_land.png';
-        img22.src = 'P_land.png';
-        img23.src = 'P_land.png';
+        land.src = 'P_land.png';
         imgPe1.src = 'P_boy.png';
         imgCar.src = 'P_car.png'; 
         imgDog.src = 'P_dog.png';
@@ -97,8 +94,8 @@
 
         
         /* land, zvlegnii hemjee */
-        img2.height = 150;
-        img2.width = 1100;
+        /*img2.height = 150;
+        img2.width = 1100;*/
         ctx.clearRect(0, 0, canvas.width, canvas.height);
 
         /* boy girl hemjee */
@@ -127,6 +124,18 @@
     }
 
     init();
+
+    function drawLands(){
+        if (lands.length !=0 && clouds[0].x < 0){
+            lands.shift();
+        }
+
+        lands.forEach(element => {
+            if (!(element.x + element.w < 0 && element.x > canvas.width)){
+                ctx.drawImage(land, element.x, element.y, element.w, element.h);
+            }
+        });
+    }
 
 
     function drawClouds(){
@@ -184,6 +193,9 @@
             element.x -= 1;
         });
 
+        lands.forEach(element => {
+            element.x -= 1;
+        })
 
         x2--;
         x21--;
@@ -196,10 +208,10 @@
         
 
         /* land zulegni orulsan hseg */
-        ctx.drawImage(img2, x2, y2, img2.width, img2.height);
+        /*ctx.drawImage(img2, x2, y2, img2.width, img2.height);
         ctx.drawImage(img21, x21, y21, img2.width, img2.height);
         ctx.drawImage(img22, x22, y22, img2.width, img2.height);
-        ctx.drawImage(img23, x23, y23, img2.width, img2.height);
+        ctx.drawImage(img23, x23, y23, img2.width, img2.height);*/
 
         /* baishin2 oruulsan hseg */
         ctx.drawImage(imgBaishin2, xbaishin2, ybaishin2, imgBaishin2.width, imgBaishin2.height);
@@ -208,9 +220,7 @@
         ctx.drawImage(imgBaishin, xbaishin, ybaishin, imgBaishin.width, imgBaishin.height)
 
         drawClouds();
-
-        /* DIRT */
-
+        drawLands();
         drawDirts();
 
         /* lamp oruulsan heseg */
