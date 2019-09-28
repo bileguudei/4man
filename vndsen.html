@@ -1,21 +1,33 @@
 <html>
 <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width" >
     <link rel="stylesheet" type="text/css" href="css/rotation.css">
 </head>
 
 <body>
-    <button onclick="startGame()" id="startButton">Restart</button>
+    <!-- <button onclick="startGame()" id="startButton">Restart</button>
     <input type="text" ; id="scoore" ; value=>
-    <canvas id="cvs" width="2000" height="850" style="border:5px solid black;"></canvas>
+    <canvas id="cvs" width="20010" height="850" style="border:5px solid black;"></canvas> -->
+    <canvas id="cvs"></canvas>
 </body>
         
 <script>
-    let canvas = document.getElementById("cvs"), ctx = canvas.getContext("2d");
-    ctx.fillStyle = "blue";
-    //ctx.fillRect(0, 0, canvas.width, canvas.height);
+    window.addEventListener('resize', resizeCanvas, false);
+
+    resizeCanvas();
+
+    function resizeCanvas(){
+        let canvas = document.getElementById("cvs");
+        canvas.width = Math.max(window.innerWidth, window.innerHeight);
+        canvas.height = Math.min(window.innerWidth, window.innerHeight);
+    }
+
     
-    /* cloud 3shirheg */
+    let canvas = document.getElementById("cvs"), ctx = canvas.getContext("2d");
+    ctx.fillStyle = "blue"; 
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+    
+    /* cloud */
     let cloud = new Image; cloud.src = 'P_cloud.png';
 
     /* shalbaag */
@@ -32,6 +44,8 @@
 
     let clouds = [{x: 500, y: 50, w: 400, h: 200},{x: 1000, y: 50, w: 300, h: 150}, {x: 1500, y: 50, w: 400, h: 200}];
     let dirts = [{x: 1800, y: 700, w: 80, h: 80}];
+    //let statu = [{x: 1200, y: 300, w: 300, h: 400}];
+    let boy = {x: 0, y: 0.6 * parseInt(canvas.height), height: 0.15 * parseInt(canvas.height), width: 0.2 * parseInt(canvas.height) * 1};
 
     function init() {
         /* land, zvlegnii bairshlin hemjee */
@@ -61,10 +75,6 @@
         /* boy iin bairlal */
         Xpe = 500;
         Ype = 520;
-
-        /* hushuu bairlal */
-        xstatu = 1200;
-        ystatu = 300;
         
         /* baishin bairlal  */
         xbaishin = 550;
@@ -103,10 +113,6 @@
         imgDog.width = 170;
         imgDog.height = 120;
 
-        /* hushuu hemjee */ 
-        imgStatu.height = 400;
-        imgStatu.width = 300;
-
         /* baishin hemjee */
         imgBaishin.height = 250;
         imgBaishin.width = 300;
@@ -142,6 +148,10 @@
             clouds.push({x: xPos, y: yPos, w: w, h: h})
         }
     }
+
+    /*function drawStatu(){
+
+    }*/
 
     function drawDirts(){
         if (dirts.length != 0 && dirts[0].x < 0){
@@ -197,10 +207,6 @@
         /* baishin oruulsan heseg */
         ctx.drawImage(imgBaishin, xbaishin, ybaishin, imgBaishin.width, imgBaishin.height)
 
-        /* cloud orulsan hseg */
-        // console.log(x, y, img.width / 2, img.height / 2);
-        // console.log(clouds[0].x, clouds[0].y, clouds[0].width, clouds[0].height);
-
         drawClouds();
 
         /* DIRT */
@@ -210,20 +216,17 @@
         /* lamp oruulsan heseg */
         ctx.drawImage(imgLamp, xlamp, ylamp, imgLamp.width, imgLamp.height);
 
-        /* hushuu oruulssan heseg*/
-        ctx.drawImage(imgStatu, xstatu, ystatu, imgStatu.width, imgStatu.height);
-
-        /* car orulsan hseg */
-        ctx.drawImage(imgCar, Xcar, Ycar, imgCar.width, imgCar.height);
+        /* car orulsan hseg 
+        ctx.drawImage(imgCar, Xcar, Ycar, imgCar.width, imgCar.height);*/
 
         /* dog orulsan hseg */ 
         ctx.drawImage(imgDog, Xdog, Ydog, imgDog.width, imgDog.height);
 
         /* boy girl oruulsan ni */
-        ctx.drawImage(imgPe1, Xpe, Ype, imgPe1.width, imgPe1.height);
+        ctx.drawImage(imgPe1, boy.x, boy.y, boy.height, boy.width);
 
         
-    }, 1);
+    }, 10);
 
     
     
