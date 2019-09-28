@@ -2,6 +2,7 @@
 <head>
     <meta name="viewport" content="width=device-width" >
     <link rel="stylesheet" type="text/css" href="css/rotation.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -34,97 +35,73 @@
     let dirt = new Image; dirt.src = 'P_shavar.png';
 
     /* background ub zurag */
-    let img1 = new Image;
-
+    let img1 = new Image;   
+     
+    /* zuleg zurag */
     let land = new Image; land.src = 'P_land.png';
 
-    /* land, zvleg 4shirheg */
-    let imgPe1 = new Image, imgCar = new Image, imgDog = new Image, imgStatu = new Image,
+    /* huuhed zurag*/
+    let imgPe1 = new Image; imgPe1.src = 'P_boy.png';
+
+    /* mashin zurag */
+    let imgCar = new Image; imgCar.src = 'P_car.png';
+
+    /* nohoi zurag */
+    let imgDog = new Image; imgDog.src = 'P_dog.png';
+
+    /* hushuu zurag */
+    let imgStatu = new Image; imgStatu.src = 'P_Statu.png';
+
+    /* bluesky zurag */
+    let bluesky = new Image; bluesky.src = 'P_BlueSky.png';
+
+    /* mongol ger */
+    let Mongolger = new Image; Mongolger.src = 'P_Ger.png';
+
     imgShavar = new Image, imgNuh = new Image, imgBaishin = new Image, imgBaishin2 = new Image,
     imgLamp = new Image, imgGandan = new Image; 
 
-    let clouds = [{x: 500, y: 50, w: 400, h: 200},{x: 1000, y: 50, w: 300, h: 150}, {x: 1500, y: 50, w: 400, h: 200}];
+    let clouds = [{x: 500, y: 20, w: 150, h: 80},{x: 750, y: 50, w: 120, h: 50}, {x: 950, y: 60, w: 100, h: 50}];
     let dirts = [{x: 1800, y: 700, w: 80, h: 80}];
-    //let lands = [{x:0, y: 320, w: 1000, h: 100}];
-    //let statu = [{x: 1200, y: 300, w: 300, h: 400}];
     let boy = {x: 5, y: 0.6 * parseInt(canvas.height), height: 0.15 * parseInt(canvas.height), width: 0.2 * parseInt(canvas.height) * 1};
-    
-    let lands = [{x: 0, y: 0.75 * parseInt(canvas.height), h: 0.15 * parseInt(canvas.height), w: 1 * parseInt(canvas.height) * 1}, {x: parseInt(canvas.height), y: 0.75 * parseInt(canvas.height), h: 0.15 * parseInt(canvas.height), w: 1 * parseInt(canvas.height) * 1}];
-
+    let lands = [{x: 0, y: 0.77 * parseInt(canvas.height), h: 0.15 * parseInt(canvas.height), w: 1 * parseInt(canvas.height) * 1}, {x: parseInt(canvas.height), y: 0.77 * parseInt(canvas.height), h: 0.15 * parseInt(canvas.height), w: 1 * parseInt(canvas.height) * 1}];
+    let blueskys = [{x: 250, y: 0.13 * parseInt(canvas.height), h: 0.65 * parseInt(canvas.height), w: 0.5 * parseInt(canvas.height) * 1}];
+    let geruud = [{x: 650, y: 0.67 * parseInt(canvas.height), h: 0.1 * parseInt(canvas.height), w: 0.2 * parseInt(canvas.height) * 1}];
     function init() {
-        /* land, zvlegnii bairshlin hemjee */
-        /*x2 = 2000;
-        y2 = 700;
-        x21 = 1000;
-        y21 = 700;
-        x22 = 0;
-        y22 = 700;
-        x23 = -1000;
-        y23 = 700;
-        Xpe = 100;
-        Ype = 350;*/
 
-
-        /* baishin2 bairlal */
-        xbaishin2 = 900;
-        ybaishin2 = 260;
-
-        /* car bairshil */
-        Xcar = 1500;
-        Ycar = 600;
-
-        /* dog bairshil */ 
-        Xdog = 1500;
-        Ydog = 630;
-
-        /* baishin bairlal  */
-        xbaishin = 550;
-        ybaishin = 450;
-
-        /* lamp bairlal */
-        xlamp = 480;
-        ylamp = 550;
-
-        /* buh oruulsan zurgin holboos */
-        // land.src = 'P_land.png';
-        imgPe1.src = 'P_boy.png';
-        imgCar.src = 'P_car.png'; 
-        imgDog.src = 'P_dog.png';
-        imgStatu.src = 'P_Statu.png';
-
-        
-        /* land, zvlegnii hemjee */
-        /*img2.height = 150;
-        img2.width = 1100;*/
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        
-        /* car hemjee */
-        imgCar.width = 400;
-        imgCar.height = 150;
-
-        /* dog hemjee */ 
-        imgDog.width = 170;
-        imgDog.height = 120;
-
-        /* baishin hemjee */
-        imgBaishin.height = 250;
-        imgBaishin.width = 300;
-
-        /* baishin2 hemjee */
-        imgBaishin2.width = 300;
-        imgBaishin2.height = 450;
-
-        /* Lamp hemjee */
-        imgLamp.width = 50;
-        imgLamp.height = 150;
+    
     }
 
     init();
 
+    function drawGeruud(){
+        geruud.forEach(element => {
+            if (!(element.x + element.w < 0 && element.x > canvas.width)){
+                ctx.drawImage(Mongolger, element.x, element.y, element.w, element.h);
+            }
+        });        
+
+        if (geruud.length < 1){
+        }
+    }
+
+    function drawBlueskys(){
+        blueskys.forEach(element => {
+            if (!(element.x + element.w < 0 && element.x > canvas.width)){
+                ctx.drawImage(bluesky, element.x, element.y, element.w, element.h);
+            }
+        });
+
+        if (blueskys.length < 1){
+            let xPos = 1800
+        }
+    }
+
     function drawLands(){
-        // if (lands.length != 0 && lands[0].x < 0){
-        //     lands.shift();
-        // }
+        //if (lands.length != 0 && lands[0].x < 0){
+        //    lands.shift();
+        //}
 
         lands.forEach(element => {
             // console.log(element);
@@ -132,6 +109,10 @@
                 ctx.drawImage(land, element.x, element.y, element.w, element.h);
             }
         });
+
+        if (lands.length < 2){
+            let xPos = 1800;
+        }
 
 
     }
@@ -149,17 +130,14 @@
         });
 
         if (clouds.length < 3){
-            let xPos = 1800 + Math.floor(Math.random() * 100);
+            let xPos = 500 + Math.floor(Math.random() * 50);
             let yPos = Math.floor(Math.random() * 50);
-            let w = Math.floor(300 + Math.random() * 100);
-            let h = Math.floor(100 + Math.random() * 100);
+            let w = Math.floor(150 + Math.random() * 50);
+            let h = Math.floor(80 + Math.random() * 50);
             clouds.push({x: xPos, y: yPos, w: w, h: h})
         }
     }
 
-    /*function drawStatu(){
-
-    }*/
 
     function drawDirts(){
         if (dirts.length != 0 && dirts[0].x < 0){
@@ -176,7 +154,7 @@
             let xPos = 1800 + Math.floor(Math.random() * 100);
             let yPos = 700 + Math.floor(Math.random() * 50);
             let w = Math.floor(50 + Math.random() * 40);
-            let h = Math.floor(50 + Math.random() * 20);
+            let h = Math.floor(20 + Math.random() * 20);
             dirts.push({x: xPos, y: yPos, w: w, h: h})
         }
     }
@@ -196,43 +174,37 @@
             element.x -= 2;
         })
 
-        //x2--;
-        //x21--;
-        //x22--;
-        //x23--;
-        Xcar = Xcar - 1;
-        Xdog = Xdog - 5; 
+        blueskys.forEach(element => {
+            element.x -= 1;
+        })
+
+        geruud.forEach(element => {
+            element.x -= 1;
+        })
 
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         
 
-        /* land zulegni orulsan hseg */
-        /*ctx.drawImage(img2, x2, y2, img2.width, img2.height);
-        ctx.drawImage(img21, x21, y21, img2.width, img2.height);
-        ctx.drawImage(img22, x22, y22, img2.width, img2.height);
-        ctx.drawImage(img23, x23, y23, img2.width, img2.height);*/
-
-
         /* baishin2 oruulsan hseg */
-        ctx.drawImage(imgBaishin2, xbaishin2, ybaishin2, imgBaishin2.width, imgBaishin2.height);
+        //ctx.drawImage(imgBaishin2, xbaishin2, ybaishin2, imgBaishin2.width, imgBaishin2.height);
 
         /* baishin oruulsan heseg */
-        ctx.drawImage(imgBaishin, xbaishin, ybaishin, imgBaishin.width, imgBaishin.height)
+        //ctx.drawImage(imgBaishin, xbaishin, ybaishin, imgBaishin.width, imgBaishin.height)
 
         drawClouds();
         drawDirts();
         drawLands();
-
-        // ctx.drawImage(land, lands[0].x, lands[0].y, lands[0].height, lands[0].width);
+        drawBlueskys();
+        drawGeruud();
 
         /* lamp oruulsan heseg */
-        ctx.drawImage(imgLamp, xlamp, ylamp, imgLamp.width, imgLamp.height);
+        //ctx.drawImage(imgLamp, xlamp, ylamp, imgLamp.width, imgLamp.height);
 
         /* car orulsan hseg 
         ctx.drawImage(imgCar, Xcar, Ycar, imgCar.width, imgCar.height);*/
 
         /* dog orulsan hseg */ 
-        ctx.drawImage(imgDog, Xdog, Ydog, imgDog.width, imgDog.height);
+        //ctx.drawImage(imgDog, Xdog, Ydog, imgDog.width, imgDog.height);
 
         /* boy girl oruulsan ni */
         ctx.drawImage(imgPe1, boy.x, boy.y, boy.height, boy.width);
