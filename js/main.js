@@ -1,3 +1,7 @@
+let isRunning = true;
+let time = 0;
+let step = 0;
+
 window.addEventListener('resize', resizeCanvas, false);
 
 resizeCanvas();
@@ -99,5 +103,18 @@ setInterval(() => {
     //ctx.drawImage(imgDog, Xdog, Ydog, imgDog.width, imgDog.height);
 
     /* boy girl oruulsan ni */
-    ctx.drawImage(imgPe1, boy.x, boy.y, boy.height, boy.width);
+
+    // ctx.drawImage(imgPe1, boy.x, boy.y, boy.height, boy.width);
+    drawBoy();
 }, 50);
+
+
+function drawBoy() {
+    if (isRunning){
+        if (step > 2) {step = 0;}
+        ctx.drawImage(boyWalk[step], boy.x, boy.y, boy.height, boy.width);
+        if (time % 3 == 0)
+            step++;
+        time++;
+    }
+}

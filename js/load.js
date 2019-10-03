@@ -26,6 +26,12 @@ let bluesky = new Image; bluesky.src = './images/P_BlueSky.png';
 /* mongol ger */
 let Mongolger = new Image; Mongolger.src = './images/P_Ger.png';
 
+let boyWalk = [];
+[0, 1, 2].forEach(function(val){
+    let img = new Image();
+    img.src = "./images/boy-walk-" + val + ".png";
+    boyWalk.push(img);
+});
 
 
 // let boy = [{ x: 5, y: 0.6 * parseInt(canvas.height), height: 0.15 * parseInt(canvas.height), width: 0.2 * parseInt(canvas.height) * 1 }];
