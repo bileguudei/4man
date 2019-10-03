@@ -33,6 +33,15 @@ let boyWalk = [];
     boyWalk.push(img);
 });
 
+let boyJump = [];
+[1, 2, 3].forEach(function(vel){
+    let zurag = new Image();
+
+    zurag.src = "./images/boy-jump-" + vel + ".png";
+
+    boyJump.push(zurag);
+})
+
 
 // let boy = [{ x: 5, y: 0.6 * parseInt(canvas.height), height: 0.15 * parseInt(canvas.height), width: 0.2 * parseInt(canvas.height) * 1 }];
 
