@@ -1,30 +1,30 @@
-let imgPe1 = new Image; imgPe1.src = 'P_boy.png';
+let imgPe1 = new Image; imgPe1.src = './images/P_boy.png';
 /* cloud */
-let cloud = new Image; cloud.src = 'P_cloud.png';
+let cloud = new Image; cloud.src = './images/P_cloud.png';
 /* nvh */
-let nvhpic = new Image; nvhpic.src = 'P_nuh.png';
+let nvhpic = new Image; nvhpic.src = './images/P_nuh.png';
 /* lamp */
-let lamppic = new Image; lamppic.src = 'P_Lamp.png';
+let lamppic = new Image; lamppic.src = './images/P_Lamp.png';
 /* baishin */
-let baishinpic = new Image; baishinpic.src = 'P_baishin.png';
+let baishinpic = new Image; baishinpic.src = './images/P_baishin.png';
 /* shavar */
-let shavarpic = new Image; shavarpic.src = 'P_shavar.png';
+let shavarpic = new Image; shavarpic.src = './images/P_shavar.png';
 /* dog */
-let dogpic = new Image; dogpic.src = 'P_dog.png';
+let dogpic = new Image; dogpic.src = './images/P_dog.png';
 /* shalbaag */
-let dirt = new Image; dirt.src = 'P_shavar.png';
+let dirt = new Image; dirt.src = './images/P_shavar.png';
 /* land */
-let land = new Image; land.src = 'P_land.png';
+let land = new Image; land.src = './images/P_land.png';
 /* mashin zurag */
-let imgCar = new Image; imgCar.src = 'P_car.png';
+let imgCar = new Image; imgCar.src = './images/P_car.png';
 /* nohoi zurag */
-let imgDog = new Image; imgDog.src = 'P_dog.png';
+let imgDog = new Image; imgDog.src = './images/P_dog.png';
 /* hushuu zurag */
-let imgStatu = new Image; imgStatu.src = 'P_Statu.png';
+let imgStatu = new Image; imgStatu.src = './images/P_Statu.png';
 /* bluesky zurag */
-let bluesky = new Image; bluesky.src = 'P_BlueSky.png';
+let bluesky = new Image; bluesky.src = './images/P_BlueSky.png';
 /* mongol ger */
-let Mongolger = new Image; Mongolger.src = 'P_Ger.png';
+let Mongolger = new Image; Mongolger.src = './images/P_Ger.png';
 
 
 
