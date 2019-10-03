@@ -1,3 +1,11 @@
+let isRunning = true;
+let isJumping = false;
+let time = 0;
+let step = 0;
+let speed, goingUp;
+let gravity = 0.2;
+
+
 window.addEventListener('resize', resizeCanvas, false);
 
 resizeCanvas();
@@ -98,5 +106,77 @@ setInterval(() => {
     //ctx.drawImage(imgDog, Xdog, Ydog, imgDog.width, imgDog.height);
 
     /* boy girl oruulsan ni */
-    ctx.drawImage(imgPe1, boy.x, boy.y, boy.height, boy.width);
-}, 10);
+
+    // ctx.drawImage(imgPe1, boy.x, boy.y, boy.height, boy.width);
+    drawBoy();
+
+    if (isRunning == false){
+        if (goingUp) {
+            speed = Math.max(0, speed - gravity);
+            if (speed == 0)
+                goingUp = false;
+            else
+                boy.y = Math.max(0.1 * parseInt(canvas.height), boy.y - speed);
+        } else {
+            speed = speed + gravity;
+            boy.y = Math.min(0.6 * parseInt(canvas.height), boy.y + speed);
+        }
+
+        if (boy.y == 0.6 * parseInt(canvas.height)) {
+            isRunning = true;
+        }
+        console.log(speed, goingUp);
+    }
+
+}, 20);
+
+
+function drawBoy() {
+    if (isRunning){
+        if (step > 2) {step = 0;}
+        ctx.drawImage(boyWalk[step], boy.x, boy.y, boy.height, boy.width);
+        if (time % 16 == 0)
+            step++;
+     time++;
+    } else {
+        if(step > 2){
+            // isRunning = true;
+            step = 0;
+        }
+        ctx.drawImage(boyJump[step], boy.x, boy.y, boy.height - 9, boy.width);
+        if(time % 32 == 0){
+            step++;
+        }
+        time++;
+    }
+}
+document.onkeyup = function (event) {
+    if (event.key == " " && isRunning == true) {
+        console.log("JUMP");
+        // isRunning = false;
+        // isJumping = true;
+        time = 0;
+        step = 0;
+        isRunning = false;
+        speed = 0.01 * canvas.height;
+        gravity = 0.0003 * canvas.height;
+        goingUp = true;
+    }
+}
+
+    // function jumpBoy(){   
+    //     clearInterval(drawBoy);  
+    //     if(isJumping){
+    //         if(step > 2){
+    //             isRunning = true;
+    //             drawBoy();
+    //         }
+    //         ctx.drawImage(boyJump[step], boy.x, boy.y-(step+1)*50, boy.height-20, boy.width);
+    //         if(time % 1000 == 0){
+    //             step++;
+    //         }
+    //         time++;
+            
+    //     }
+    
+    // }
