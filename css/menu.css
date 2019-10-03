@@ -1,0 +1,41 @@
+body{
+    margin: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+}
+
+.fullpage {
+    background-image: url('../images/Artboard\ 3.png');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.login1 {
+    background-image: url('../images/P_boylogin.png');
+    background-size: cover;
+    height: 50vh;
+    width: 50vh;
+   
+}
+.login2 {
+    background-image: url('../images/ohinlogin.png');
+    background-size: cover;
+    height: 50vh;
+    width: 50vh;
+
+    
+}
+
+@media only screen and (orientation:portrait){  
+    body{
+        width: 100vh;
+        height: 100vw;
+        transform: rotate(90deg);
+        transform-origin: calc(50vw) calc(50vw);
+    } 
+}
