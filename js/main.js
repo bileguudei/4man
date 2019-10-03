@@ -28,17 +28,18 @@ setInterval(() => {
         element.x -= 1;
     });
 
-    dirts.forEach(element => {
-        element.x -= 1;
-    });
-
     lands.forEach(element => {
-        element.x -= 2;
+       element.x -= 2;
     })
 
     baishins.forEach(element => {
         element.x -= 1;
     });
+
+    status.forEach(element => {
+        element.x -= 1;
+    })
+
     blueskys.forEach(element => {
         element.x -= 1;
     })
@@ -70,26 +71,24 @@ setInterval(() => {
 
     /* baishin oruulsan heseg */
     //ctx.drawImage(imgBaishin, xbaishin, ybaishin, imgBaishin.width, imgBaishin.height)
-
-    drawClouds();
-    drawDirts();
+    
     drawLands();
+    drawStatus();
+    drawClouds();
+    drawGeruud();
+    drawBlueskys();
     drawShavars();
     drawDogs();
     drawBaishins();
     drawLamps();
     drawNvhs();
+    //drawGandans();
 
     /* land orulsan heseg */
     ctx.drawImage(land, lands[0].x, lands[0].y, lands[0].height, lands[0].width);
 
     /* baishin orulsan hseg */
     ctx.drawImage(baishinpic, baishins[0].x, baishins[0].y, baishins.width, baishins.height);
-    drawBlueskys();
-    drawGeruud();
-
-    /* lamp oruulsan heseg */
-    //ctx.drawImage(imgLamp, xlamp, ylamp, imgLamp.width, imgLamp.height);
 
     /* lamp oruulsan heseg */
     ctx.drawImage(lamppic, lamps[0].x, lamps[0].y, lamps[0].width, lamps[0].height);
@@ -100,4 +99,4 @@ setInterval(() => {
 
     /* boy girl oruulsan ni */
     ctx.drawImage(imgPe1, boy.x, boy.y, boy.height, boy.width);
-}, 50);
+}, 10);
