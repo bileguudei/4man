@@ -41,17 +41,18 @@ var drawInterval = setInterval(() => {
         element.x -= 1;
     });
 
-    dirts.forEach(element => {
-        element.x -= 1;
-    });
-
     lands.forEach(element => {
-        element.x -= 2;
+       element.x -= 2;
     })
 
     baishins.forEach(element => {
         element.x -= 1;
     });
+
+    status.forEach(element => {
+        element.x -= 1;
+    })
+
     blueskys.forEach(element => {
         element.x -= 1;
     })
@@ -76,6 +77,10 @@ var drawInterval = setInterval(() => {
         element.x -= 1;
     });
 
+    hiids.forEach(element => {
+        element.x -= 1;
+    })
+
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     /* baishin2 oruulsan hseg */
@@ -83,35 +88,18 @@ var drawInterval = setInterval(() => {
 
     /* baishin oruulsan heseg */
     //ctx.drawImage(imgBaishin, xbaishin, ybaishin, imgBaishin.width, imgBaishin.height)
-
-    drawClouds();
-    drawDirts();
+   
     drawLands();
+    drawStatus();
+    drawGeruud();
+    drawBlueskys();
     drawShavars();
     drawDogs();
     drawBaishins();
     drawLamps();
     drawNvhs();
-
-    /* land orulsan heseg */
-    ctx.drawImage(land, lands[0].x, lands[0].y, lands[0].height, lands[0].width);
-
-    /* baishin orulsan hseg */
-    ctx.drawImage(baishinpic, baishins[0].x, baishins[0].y, baishins.width, baishins.height);
-    drawBlueskys();
-    drawGeruud();
-
-    /* lamp oruulsan heseg */
-    //ctx.drawImage(imgLamp, xlamp, ylamp, imgLamp.width, imgLamp.height);
-
-    /* lamp oruulsan heseg */
-    ctx.drawImage(lamppic, lamps[0].x, lamps[0].y, lamps[0].width, lamps[0].height);
-
-    /* dog orulsan hseg */
-    ctx.drawImage(dogpic, dogs[0].x, dogs[0].y, dogs.width, dogs.height);
-    //ctx.drawImage(imgDog, Xdog, Ydog, imgDog.width, imgDog.height);
-
-    /* boy girl oruulsan ni */
+    drawClouds();
+    drawHiids();
 
     // ctx.drawImage(imgPe1, boy.x, boy.y, boy.height, boy.width);
     drawBoy();
@@ -125,13 +113,13 @@ var drawInterval = setInterval(() => {
                 boy.y = Math.max(0.1 * parseInt(canvas.height), boy.y - speed);
         } else {
             speed = speed + gravity;
-            boy.y = Math.min(0.6 * parseInt(canvas.height), boy.y + speed);
+            boy.y = Math.min(0.65 * parseInt(canvas.height), boy.y + speed);
         }
 
-        if (boy.y == 0.6 * parseInt(canvas.height)) {
+        if (boy.y == 0.65 * parseInt(canvas.height)) {
             setTimeout(function(){isRunning = true;}, 150);
         }
-        console.log(speed, goingUp);
+        // console.log(speed, goingUp);
     }
 
 }, 20);
@@ -151,7 +139,7 @@ function drawBoy() {
             step = 0;
         }
         var zurag = new Image();
-        zurag.src = "/.images/boy-jump-1.png";
+        zurag.src = "./images/boy-jump-1.png";
 
         if(step == 0){
         ctx.drawImage(zurag, boy.x, boy.y, boy.height - 9, boy.width);
