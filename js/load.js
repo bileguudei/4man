@@ -36,6 +36,13 @@ let boyWalk = [];
     img.src = "./images/boy-walk-" + val + ".png";
     boyWalk.push(img);
 });
+/*
+let dogWalk = [];
+[0, 1, 2].forEach(function (vol){
+    let nohoi = new Image();
+    nohoi.src = "./images/nohoi-yvah-" + vol + ".png";
+    dogWalk.push(nohoi);
+});*/
 
 /*let boyJump = [];
 [1, 2, 3].forEach(function(vel){
