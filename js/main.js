@@ -1,9 +1,12 @@
+
 let isRunning = true;
 let isJumping = false;
 let time = 0;
 let step = 0;
 let speed, goingUp;
 let gravity = 0.2;
+
+
 
 
 window.addEventListener('resize', resizeCanvas, false);
@@ -40,7 +43,9 @@ function checkCollision() {
 
 
 
-setInterval(() => {
+
+
+var drawInterval = setInterval(() => {
 
     // cloud movements
     clouds.forEach(element => {
@@ -84,6 +89,10 @@ setInterval(() => {
         element.x -= 1;
     });
 
+    hiids.forEach(element => {
+        element.x -= 1;
+    })
+
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     /* baishin2 oruulsan hseg */
@@ -91,35 +100,18 @@ setInterval(() => {
 
     /* baishin oruulsan heseg */
     //ctx.drawImage(imgBaishin, xbaishin, ybaishin, imgBaishin.width, imgBaishin.height)
-    
+   
     drawLands();
     drawStatus();
-    drawClouds();
     drawGeruud();
     drawBlueskys();
-    drawShavars();
-    drawDogs();
     drawBaishins();
-    drawLamps();
     drawNvhs();
-    //drawGandans();
-
-    /* land orulsan heseg */
-    ctx.drawImage(land, lands[0].x, lands[0].y, lands[0].height, lands[0].width);
-
-    /* baishin orulsan hseg */
-    ctx.drawImage(baishinpic, baishins[0].x, baishins[0].y, baishins.width, baishins.height);
-
-    /* lamp oruulsan heseg */
-    ctx.drawImage(lamppic, lamps[0].x, lamps[0].y, lamps[0].width, lamps[0].height);
-
-    /* dog orulsan hseg */
-    ctx.drawImage(dogpic, dogs[0].x, dogs[0].y, dogs.width, dogs.height);
-    //ctx.drawImage(imgDog, Xdog, Ydog, imgDog.width, imgDog.height);
-
-    /* boy girl oruulsan ni */
-
-    // ctx.drawImage(imgPe1, boy.x, boy.y, boy.height, boy.width);
+    drawClouds();
+    drawHiids();
+    drawShavars();
+    drawDogs(); 
+    drawLamps();
     drawBoy();
 
     if (isRunning == false){
@@ -131,11 +123,11 @@ setInterval(() => {
                 boy.y = Math.max(0.1 * parseInt(canvas.height), boy.y - speed);
         } else {
             speed = speed + gravity;
-            boy.y = Math.min(0.6 * parseInt(canvas.height), boy.y + speed);
+            boy.y = Math.min(0.65 * parseInt(canvas.height), boy.y + speed);
         }
 
-        if (boy.y == 0.6 * parseInt(canvas.height)) {
-            isRunning = true;
+        if (boy.y == 0.65 * parseInt(canvas.height)) {
+            setTimeout(function(){isRunning = true;}, 150);
         }
         // console.log(speed, goingUp);
     }
@@ -155,10 +147,42 @@ function drawBoy() {
             step++;
      time++;
     } else {
+<<<<<<< HEAD
         if(step > 2){
+=======
+
+        if(step > 3){
+            // isRunning = true;
+>>>>>>> 19ce866ad7cc7cf3aeaf9cc7e4640858fd4b8ae7
             step = 0;
         }
-        ctx.drawImage(boyJump[step], boy.x, boy.y, boy.height - 9, boy.width);
+        var zurag = new Image();
+        zurag.src = "./images/boy-jump-1.png";
+
+        if(step == 0){
+        ctx.drawImage(zurag, boy.x, boy.y, boy.height - 9, boy.width);
+        }
+
+        var zurag1= new Image();
+        zurag1.src = "./images/boy-jump-2.png";
+
+        if(step == 1){
+        ctx.drawImage(zurag1, boy.x, boy.y, boy.height - 9, boy.width);
+        }
+
+        var zurag2 = new Image();
+        zurag2.src = "./images/boy-jump-3.png";
+
+        if(step == 2){
+        ctx.drawImage(zurag2, boy.x, boy.y, boy.height + 23, boy.width);
+        } 
+
+        var zurag3 = new Image();
+        zurag3.src = "./images/boy-jump-4.png";
+
+        if(step == 3){
+            ctx.drawImage(zurag3, boy.x, boy.y, boy.height + 70, boy.width);
+        }  
         if(time % 32 == 0){
             step++;
         }
@@ -180,6 +204,12 @@ document.onkeyup = function (event) {
         goingUp = true;
     }
 }
+let onoo = 0;
+var scoreInterval = setInterval(() => {
+    onoo++;
+    document.getElementById("onoo").innerHTML = onoo;
+}, 200);
+
 
     // function jumpBoy(){   
     //     clearInterval(drawBoy);  
