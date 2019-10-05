@@ -171,15 +171,40 @@ function drawBaishins() {
     } 
 
 }
-
+let alhalt = 0;
+let hugatsaa = 0;
 function drawDogs() {
+    
+
+    
+    
     if (dogs.length != 0 && dogs[0].x < 0) {
         dogs.shift();
     }
 
     dogs.forEach(element => {
+        
         if (!(element.x + element.w < 0 && element.x > canvas.width)) {
-            ctx.drawImage(dogpic, element.x, element.y, element.w, element.h);
+            if(alhalt > 1){
+                alhalt = 0;
+            }
+            var bulldog = new Image();
+            bulldog.src = "./images/nohoi-yvah-1.png";
+
+            if(alhalt == 0){
+                ctx.drawImage(bulldog, element.x, element.y, element.h, element.w);
+            }
+            var bulldog1 = new Image();
+            bulldog1.src = "./images/nohoi-yvah-2.png";
+
+            if(alhalt == 1){
+                ctx.drawImage(bulldog1, element.x, element.y, element.h, element.w);
+            }
+            if(hugatsaa % 32 == 0){
+                alhalt++;
+            }
+            hugatsaa++;
+    
         }
     });
 

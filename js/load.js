@@ -36,15 +36,21 @@ let boyWalk = [];
     img.src = "./images/boy-walk-" + val + ".png";
     boyWalk.push(img);
 });
+/*
+let dogWalk = [];
+[0, 1, 2].forEach(function (vol){
+    let nohoi = new Image();
+    nohoi.src = "./images/nohoi-yvah-" + vol + ".png";
+    dogWalk.push(nohoi);
+});*/
 
-let boyJump = [];
+/*let boyJump = [];
 [1, 2, 3].forEach(function(vel){
     let zurag = new Image();
-
     zurag.src = "./images/boy-jump-" + vel + ".png";
 
     boyJump.push(zurag);
-})
+})*/
 
 let status = [{ x: 350, y: 0.45 * parseInt(canvas.height), h: 0.35 * parseInt(canvas.height), w: 0.3 * parseInt(canvas.height) * 1 }];
 let baishins = [{ x: 50, y: 0.5 * parseInt(canvas.height), h: 0.3 * parseInt(canvas.height), w: 0.3 * parseInt(canvas.height) * 1 }];
