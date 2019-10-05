@@ -25,6 +25,10 @@ let imgStatu = new Image; imgStatu.src = './images/P_Statu.png';
 let bluesky = new Image; bluesky.src = './images/P_BlueSky.png';
 /* mongol ger */
 let Mongolger = new Image; Mongolger.src = './images/P_Ger.png';
+/* svmhiid  */
+let hiid = new Image; hiid.src = './images/P_SvmHiid.png';
+/* nar */
+let nar = new Image; nar.src = './images/nar.png'
 
 let boyWalk = [];
 [0, 1, 2].forEach(function(val){
@@ -42,23 +46,15 @@ let boyJump = [];
     boyJump.push(zurag);
 })
 
-
-// let boy = [{ x: 5, y: 0.6 * parseInt(canvas.height), height: 0.15 * parseInt(canvas.height), width: 0.2 * parseInt(canvas.height) * 1 }];
-
-// let lands = [{ x: 0, y: 0.75 * parseInt(canvas.height), h: 0.15 * parseInt(canvas.height), w: 1 * parseInt(canvas.height) * 1 }, { x: parseInt(canvas.height), y: 0.75 * parseInt(canvas.height), h: 0.15 * parseInt(canvas.height), w: 1 * parseInt(canvas.height) * 1 }];
-
-
-imgShavar = new Image, imgNuh = new Image, imgBaishin = new Image, imgBaishin2 = new Image,
-    imgLamp = new Image, imgGandan = new Image;
-
-let status = [{ x: 390, y: 0.55 * parseInt(canvas.height), h: 0.3 * parseInt(canvas.height), w: 0.3 * parseInt(canvas.height) * 1 }];
-let baishins = [{ x: 60, y: 0.55 * parseInt(canvas.height), h: 0.3 * parseInt(canvas.height), w: 0.3 * parseInt(canvas.height) * 1 }];
-let clouds = [{ x: 500, y: 20, w: 150, h: 80 }, { x: 750, y: 50, w: 120, h: 50 }, { x: 950, y: 60, w: 100, h: 50 }];
-let boy = { x: 50, y: 0.7 * parseInt(canvas.height), height: 0.15 * parseInt(canvas.height), width: 0.2 * parseInt(canvas.height) * 1 };
-let lands = [{ x: 0, y: 0.85 * parseInt(canvas.height), h: 0.15 * parseInt(canvas.height), w: 0.5 * parseInt(canvas.width) * 1 }, { x: 0.5 * parseInt(canvas.width), y: 0.85 * parseInt(canvas.height), h: 0.15 * parseInt(canvas.height), w: 0.5 * parseInt(canvas.width) * 1 }];
-let blueskys = [{ x: 230, y: 0.23 * parseInt(canvas.height), h: 0.63 * parseInt(canvas.height), w: 0.4 * parseInt(canvas.height) * 1 }];
-let geruud = [{ x: 650, y: 0.75 * parseInt(canvas.height), h: 0.1 * parseInt(canvas.height), w: 0.2 * parseInt(canvas.height) * 1 }];
+let status = [{ x: 370, y: 0.5 * parseInt(canvas.height), h: 0.3 * parseInt(canvas.height), w: 0.3 * parseInt(canvas.height) * 1 }];
+let baishins = [{ x: 60, y: 0.5 * parseInt(canvas.height), h: 0.3 * parseInt(canvas.height), w: 0.3 * parseInt(canvas.height) * 1 }];
+let clouds = [{ x: 50, y: 0.1 * parseInt(canvas.height), h: 0.15 * parseInt(canvas.height), w: 0.3 * parseInt(canvas.height) * 1}, { x: 250, y: 0.1 * parseInt(canvas.height), h: 0.2 * parseInt(canvas.height), w: 0.35 * parseInt(canvas.height) * 1}];
+let boy = { x: 50, y: 0.65 * parseInt(canvas.height), height: 0.15 * parseInt(canvas.height), width: 0.25 * parseInt(canvas.height) * 1 };
+let lands = [{ x: 0, y: 0.8 * parseInt(canvas.height), h: 0.2 * parseInt(canvas.height), w: 0.5 * parseInt(canvas.width) * 1 }, { x: 0.5 * parseInt(canvas.width), y: 0.8 * parseInt(canvas.height), h: 0.2 * parseInt(canvas.height), w: 0.5 * parseInt(canvas.width) * 1 }];
+let blueskys = [{ x: 220, y: 0.18 * parseInt(canvas.height), h: 0.63 * parseInt(canvas.height), w: 0.4 * parseInt(canvas.height) * 1 }];
+let geruud = [{ x: 650, y: 0.7 * parseInt(canvas.height), h: 0.1 * parseInt(canvas.height), w: 0.2 * parseInt(canvas.height) * 1 }];
 let dogs = [{ x: 650, y: 0.75 * parseInt(canvas.height), h: 0.15 * parseInt(canvas.height), w: 0.15 * parseInt(canvas.height) * 1 }];
-let nvhs = [{ x: 450, y: 0.88 * parseInt(canvas.height), h: 0.05 * parseInt(canvas.height), w: 0.1 * parseInt(canvas.height) * 1 }];
-let shavars = [{ x: 250, y: 0.88 * parseInt(canvas.height), h: 0.07 * parseInt(canvas.height), w: 0.1 * parseInt(canvas.height) * 1 }];
-let lamps = [{ x: 20, y: 0.7 * parseInt(canvas.height), h: 0.15 * parseInt(canvas.height), w: 0.07 * parseInt(canvas.height) * 1 }, { x: 190, y: 0.7 * parseInt(canvas.height), h: 0.15 * parseInt(canvas.height), w: 0.07 * parseInt(canvas.height) * 1 }];
+let nvhs = [{ x: 450, y: 0.86 * parseInt(canvas.height), h: 0.05 * parseInt(canvas.height), w: 0.1 * parseInt(canvas.height) * 1 }];
+let shavars = [{ x: 250, y: 0.85 * parseInt(canvas.height), h: 0.07 * parseInt(canvas.height), w: 0.12 * parseInt(canvas.height) * 1 }];
+let lamps = [{ x: 20, y: 0.65 * parseInt(canvas.height), h: 0.15 * parseInt(canvas.height), w: 0.07 * parseInt(canvas.height) * 1 }, { x: 180, y: 0.65 * parseInt(canvas.height), h: 0.15 * parseInt(canvas.height), w: 0.07 * parseInt(canvas.height) * 1 }];
+let hiids = [{ x: 450, y: 0.4 * parseInt(canvas.height), h: 0.4 * parseInt(canvas.height), w: 0.4 * parseInt(canvas.height) * 1 }];

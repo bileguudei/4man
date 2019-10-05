@@ -72,6 +72,10 @@ setInterval(() => {
         element.x -= 1;
     });
 
+    hiids.forEach(element => {
+        element.x -= 1;
+    })
+
 
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     /* baishin2 oruulsan hseg */
@@ -79,10 +83,9 @@ setInterval(() => {
 
     /* baishin oruulsan heseg */
     //ctx.drawImage(imgBaishin, xbaishin, ybaishin, imgBaishin.width, imgBaishin.height)
-    
+   
     drawLands();
     drawStatus();
-    drawClouds();
     drawGeruud();
     drawBlueskys();
     drawShavars();
@@ -90,22 +93,8 @@ setInterval(() => {
     drawBaishins();
     drawLamps();
     drawNvhs();
-    //drawGandans();
-
-    /* land orulsan heseg */
-    ctx.drawImage(land, lands[0].x, lands[0].y, lands[0].height, lands[0].width);
-
-    /* baishin orulsan hseg */
-    ctx.drawImage(baishinpic, baishins[0].x, baishins[0].y, baishins.width, baishins.height);
-
-    /* lamp oruulsan heseg */
-    ctx.drawImage(lamppic, lamps[0].x, lamps[0].y, lamps[0].width, lamps[0].height);
-
-    /* dog orulsan hseg */
-    ctx.drawImage(dogpic, dogs[0].x, dogs[0].y, dogs.width, dogs.height);
-    //ctx.drawImage(imgDog, Xdog, Ydog, imgDog.width, imgDog.height);
-
-    /* boy girl oruulsan ni */
+    drawClouds();
+    drawHiids();
 
     // ctx.drawImage(imgPe1, boy.x, boy.y, boy.height, boy.width);
     drawBoy();
@@ -119,10 +108,10 @@ setInterval(() => {
                 boy.y = Math.max(0.1 * parseInt(canvas.height), boy.y - speed);
         } else {
             speed = speed + gravity;
-            boy.y = Math.min(0.6 * parseInt(canvas.height), boy.y + speed);
+            boy.y = Math.min(0.7 * parseInt(canvas.height), boy.y + speed);
         }
 
-        if (boy.y == 0.6 * parseInt(canvas.height)) {
+        if (boy.y == 0.7 * parseInt(canvas.height)) {
             isRunning = true;
         }
         console.log(speed, goingUp);

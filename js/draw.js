@@ -1,4 +1,5 @@
 function drawGeruud() {
+
     geruud.forEach(element => {
         if (!(element.x + element.w < 0 && element.x > canvas.width)) {
             ctx.drawImage(Mongolger, element.x, element.y, element.w, element.h);
@@ -6,22 +7,34 @@ function drawGeruud() {
     });
 
     if (geruud.length < 1) {
+        let xPos = 650;
+        let yPos = 0.75 * parseInt(canvas.height);
+        let w = 0.2 * parseInt(canvas.height);
+        let h = 0.1 * parseInt(canvas.height);
+        dogs.push({ x: xPos, y: yPos, w: w, h: h})
     }
 }
 
-function drawGandans(){
-    gandans.forEach(element => {
+function drawHiids() {
+    if (hiids.length != 0 && hiids[0].x < -100){
+        hiids.shift();
+    }
+ 
+     hiids.forEach(element => {
+         // console.log(element);
         if (!(element.x + element.w < 0 && element.x > canvas.width)) {
-            ctx.drawImage(gandan, element.x, element.y, element.w, element.h);
+            ctx.drawImage(hiid, element.x, element.y, element.w, element.h);
         }
     });
-
-    if (gandans.length < 1) {
-        let xPos = 1800
-    }
+ 
+    /*if (hiids.length < 1) {
+        let xPos = 
+        let yPos = 0.8 * parseInt(canvas.height);
+        let w = parseInt(canvas.height);
+        let h = 0.2 * parseInt(canvas.height);
+        hiids.push({ x: xPos, y: yPos, w: w, h: h})
+    }*/
 }
-
-
 
 function drawStatus() {
     status.forEach(element => {
@@ -31,7 +44,7 @@ function drawStatus() {
     });
 
     if (status.length < 1) {
-        let xPos = 1800
+        let 
     }
 }
 
@@ -39,6 +52,10 @@ function drawStatus() {
 
 
 function drawBlueskys() {
+    if (blueskys.length != 0 && blueskys[0].x < -100) {
+        blueskys.shift();
+    }
+
     blueskys.forEach(element => {
         if (!(element.x + element.w < 0 && element.x > canvas.width)) {
             ctx.drawImage(bluesky, element.x, element.y, element.w, element.h);
@@ -46,7 +63,11 @@ function drawBlueskys() {
     });
 
     if (blueskys.length < 1) {
-        let xPos = 1800
+        let xPos = 850;
+        let yPos = 0.18 * parseInt(canvas.height);
+        let w = 0.4 * parseInt(canvas.height) * 1 ;
+        let h = 0.63 * parseInt(canvas.height);
+        blueskys.push({ x: xPos, y: yPos, w: w, h: h})
     }
 }
 
@@ -66,35 +87,12 @@ function drawLands() {
 
     if (lands[lands.length - 1].x + lands[lands.length - 1].w - 10< canvas.width) {
         let xPos = parseInt(canvas.width) - 50;
-        let yPos = 0.85 * parseInt(canvas.height);
+        let yPos = 0.8 * parseInt(canvas.height);
         let w = parseInt(canvas.height);
-        let h = 0.15 * parseInt(canvas.height);
+        let h = 0.2 * parseInt(canvas.height);
         lands.push({ x: xPos, y: yPos, w: w, h: h})
     }
 }
-
-
-
-function drawShavars() {
-    if (shavars.length != 0 && dirts[0].x < 0) {
-        shavars.shift();
-    }
-
-    shavars.forEach(element => {
-        if (!(element.x + element.w < 0 && element.x > canvas.width)) {
-            ctx.drawImage(shavarpic, element.x, element.y, element.w, element.h);
-        }
-    });
-
-    if (shavars.length < 1) {
-        let xPos = 1800 + Math.floor(Math.random() * 100);
-        let yPos = 700 + Math.floor(Math.random() * 50);
-        let w = Math.floor(50 + Math.random() * 40);
-        let h = Math.floor(20 + Math.random() * 20);
-        shavars.push({ x: xPos, y: yPos, w: w, h: h })
-    }
-}
-
 
 
 function drawClouds() {
@@ -108,19 +106,19 @@ function drawClouds() {
         }
     });
 
-    if (clouds.length < 3) {
-        let xPos = 1800 + Math.floor(Math.random() * 100);
-        let yPos = Math.floor(Math.random() * 50);
-        let w = Math.floor(300 + Math.random() * 100);
-        let h = Math.floor(100 + Math.random() * 100);
+    /*if (clouds.length < 3) {
+        let xPos = 
+        let yPos = 
+        let w = 
+        let h = 
         clouds.push({ x: xPos, y: yPos, w: w, h: h })
-    }
+    }*/
 }
 
 
 
 function drawLamps() {
-    if (lamps.length != 0 && lamps[0].x < 0) {
+    if (lamps.length != 0 && lamps[0].x < -100) {
         lamps.shift();
     }
 
@@ -131,10 +129,10 @@ function drawLamps() {
     });
 
     if (lamps.length < 3) {
-        let xPos = 1800 + Math.floor(Math.random() * 100);
-        let yPos = Math.floor(Math.random() * 50);
-        let w = Math.floor(300 + Math.random() * 100);
-        let h = Math.floor(100 + Math.random() * 100);
+        let xPos = 20;
+        let yPos = 0.65 * parseInt(canvas.height);
+        let w = 0.07 * parseInt(canvas.height) * 1;
+        let h = 0.15 * parseInt(canvas.height);
         lamps.push({ x: xPos, y: yPos, w: w, h: h })
     }
 }
@@ -143,9 +141,9 @@ function drawLamps() {
 
 
 function drawBaishins() {
-    /*if (baishins.length != 0 && baishins[0].x < 0) {
+    if (baishins.length != 0 && baishins[0].x < -100) {
         baishins.shift();
-    }*/
+    }
 
     baishins.forEach(element => {
         if (!(element.x + element.w < 0 && element.x > canvas.width)) {
@@ -153,13 +151,13 @@ function drawBaishins() {
         }
     });
 
-    /* if (baishins.length < 3){
-        let xPos = 1800 + Math.floor(Math.random() * 100);
-        let yPos = Math.floor(Math.random() + 50);
-        let w = Math.floor(300 + Math.random() * 100);
-        let h = Math.floor(100 + Math.random() * 100);
+    if (baishins.length < 1){
+        let xPos = 760;
+        let yPos = 0.5 * parseInt(canvas.height)
+        let w = 0.3 * parseInt(canvas.height) * 1;
+        let h = 0.3 * parseInt(canvas.height);
         baishins.push({x: xPos, y: yPos, w: w, h: h})
-    } */
+    } 
 
 }
 
@@ -198,11 +196,11 @@ function drawShavars() {
         }
     });
 
-    if (shavars.length < 3) {
-        let xPos = 1800 + Math.floor(Math.random() * 100);
-        let yPos = Math.floor(Math.random() * 50);
-        let w = Math.floor(300 + Math.random() * 100);
-        let h = Math.floor(100 + Math.random() * 100);
+    if (shavars.length < 2) {
+        let xPos = 500;
+        let yPos = 0.85 * parseInt(canvas.height);
+        let w = 0.12 * parseInt(canvas.height) * 1;
+        let h = 0.07 * parseInt(canvas.height);
         shavars.push({ x: xPos, y: yPos, w: w, h: h })
     }
 }
@@ -220,11 +218,11 @@ function drawNvhs() {
         }
     });
 
-    if (nvhs.length < 3) {
-        let xPos = 1800 + Math.floor(Math.random() * 100);
-        let yPos = Math.floor(Math.random() * 50);
-        let w = Math.floor(300 + Math.random() * 100);
-        let h = Math.floor(100 + Math.random() * 100);
+    if (nvhs.length < 2) {
+        let xPos = 450;
+        let yPos = 0.86 * parseInt(canvas.height);
+        let w = 0.1 * parseInt(canvas.height) * 1;
+        let h = 0.05 * parseInt(canvas.height);
         nvhs.push({ x: xPos, y: yPos, w: w, h: h })
     }
 }
