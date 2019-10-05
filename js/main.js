@@ -35,7 +35,7 @@ function stopGame(){
 }
 function checkCollision() {
     // console.log(boy.width, boy.x, dogs[0].x);
-    if ( boy.width + boy.x >= dogs[0].x + 20 && boy.height + boy.y >= dogs[0].y) {
+    if ( boy.width + boy.x >= dogs[0].x + 20 && boy.height + boy.y >= shavars[0].y || boy.width + boy.x >= shavars[0].x + 20 && boy.height + boy.y >= shavars[0].y || boy.width + boy.x >= nvhs[0].x + 20 && boy.height + boy.y >= nvhs[0].y) {
         return true;
     }
     return false;
@@ -147,13 +147,13 @@ function drawBoy() {
             step++;
      time++;
     } else {
-<<<<<<< HEAD
+
         if(step > 2){
-=======
+
+        }
 
         if(step > 3){
             // isRunning = true;
->>>>>>> 19ce866ad7cc7cf3aeaf9cc7e4640858fd4b8ae7
             step = 0;
         }
         var zurag = new Image();
