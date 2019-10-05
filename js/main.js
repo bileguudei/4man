@@ -62,11 +62,11 @@ var drawInterval = setInterval(() => {
     })
 
     nvhs.forEach(element => {
-        element.x -= 1;
+        element.x -= 2;
     });
 
     dogs.forEach(element => {
-        element.x -= 1;
+        element.x -= 2;
     });
 
     lamps.forEach(element => {
@@ -74,7 +74,7 @@ var drawInterval = setInterval(() => {
     });
 
     shavars.forEach(element => {
-        element.x -= 1;
+        element.x -= 2;
     });
 
     hiids.forEach(element => {

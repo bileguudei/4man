@@ -56,7 +56,6 @@ let status = [{ x: 350, y: 0.45 * parseInt(canvas.height), h: 0.35 * parseInt(ca
 let baishins = [{ x: 50, y: 0.5 * parseInt(canvas.height), h: 0.3 * parseInt(canvas.height), w: 0.3 * parseInt(canvas.height) * 1 }];
 let clouds = [{ x: 80, y: 0.1 * parseInt(canvas.height), h: 0.15 * parseInt(canvas.height), w: 0.3 * parseInt(canvas.height) * 1}, { x: 300, y: 0.1 * parseInt(canvas.height), h: 0.25 * parseInt(canvas.height), w: 0.4 * parseInt(canvas.height) * 1}, { x: 550, y: 0.1 * parseInt(canvas.height), h: 0.2 * parseInt(canvas.height), w: 0.35 * parseInt(canvas.height) * 1}];
 let boy = { x: 50, y: 0.65 * parseInt(canvas.height), height: 0.15 * parseInt(canvas.height), width: 0.25 * parseInt(canvas.height) * 1 };
-//let nar = [{ x: 10, y: 0.1 * parseInt(canvas.height), h: 0.2 * parseInt(canvas.height), w: 0.2 * parseInt(canvas.height) * 1}]
 let lands = [{ x: 0, y: 0.8 * parseInt(canvas.height), h: 0.2 * parseInt(canvas.height), w: 0.5 * parseInt(canvas.width) * 1 }, { x: 0.5 * parseInt(canvas.width), y: 0.8 * parseInt(canvas.height), h: 0.2 * parseInt(canvas.height), w: 0.5 * parseInt(canvas.width) * 1 }];
 let blueskys = [{ x: 190, y: 0.18 * parseInt(canvas.height), h: 0.63 * parseInt(canvas.height), w: 0.4 * parseInt(canvas.height) * 1 }];
 let geruud = [{ x: 600, y: 0.6 * parseInt(canvas.height), h: 0.2 * parseInt(canvas.height), w: 0.3 * parseInt(canvas.height) * 1 }];

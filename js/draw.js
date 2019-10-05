@@ -171,9 +171,9 @@ function drawBaishins() {
     } 
 
 }
-let alhalt = 0;
-let hugatsaa = 0;
-function drawDogs() {
+    let alhalt = 0;
+    let hugatsaa = 0;
+    function drawDogs() {
     
 
     
@@ -200,7 +200,7 @@ function drawDogs() {
             if(alhalt == 1){
                 ctx.drawImage(bulldog1, element.x, element.y, element.h, element.w);
             }
-            if(hugatsaa % 32 == 0){
+            if(hugatsaa % 10 == 0){
                 alhalt++;
             }
             hugatsaa++;
@@ -233,7 +233,7 @@ function drawShavars() {
     });
 
     if (shavars.length < 2) {
-        let xPos = 500;
+        let xPos = 600;
         let yPos = 0.85 * parseInt(canvas.height);
         let w = 0.12 * parseInt(canvas.height) * 1;
         let h = 0.07 * parseInt(canvas.height);
@@ -253,8 +253,8 @@ function drawNvhs() {
         }
     });
 
-    if (nvhs.length < 2) {
-        let xPos = 450;
+    if (nvhs.length < 1) {
+        let xPos = 550;
         let yPos = 0.86 * parseInt(canvas.height);
         let w = 0.1 * parseInt(canvas.height) * 1;
         let h = 0.05 * parseInt(canvas.height);
