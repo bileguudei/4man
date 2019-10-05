@@ -34,17 +34,21 @@ function stopGame(){
     return;
 }
 function checkCollision() {
-    // console.log(boy.width, boy.x, dogs[0].x);
-    if ( boy.width + boy.x >= dogs[0].x + 20 && boy.height + boy.y >= shavars[0].y || boy.width + boy.x >= shavars[0].x + 20 && boy.height + boy.y >= shavars[0].y || boy.width + boy.x >= nvhs[0].x + 20 && boy.height + boy.y >= nvhs[0].y) {
+    
+    if ( boy.width + boy.x >= dogs[0].x + 20 && boy.height + boy.y >= shavars[0].y) {
         return true;
+        
+    }
+    if ( boy.width + boy.x >= shavars[0].x + 20 && boy.height + boy.y >= shavars[0].y) {
+        return true;
+        
+    }
+    if ( boy.width + boy.x >= nvhs[0].x + 20 && boy.height + boy.y >= nvhs[0].y) {
+        return true;
+        
     }
     return false;
 }
-
-
-
-
-
 var drawInterval = setInterval(() => {
 
     // cloud movements
