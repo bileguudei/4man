@@ -88,15 +88,13 @@ setInterval(() => {
     drawStatus();
     drawGeruud();
     drawBlueskys();
-    drawShavars();
-    drawDogs();
     drawBaishins();
-    drawLamps();
     drawNvhs();
     drawClouds();
     drawHiids();
-
-    // ctx.drawImage(imgPe1, boy.x, boy.y, boy.height, boy.width);
+    drawShavars();
+    drawDogs();
+    drawLamps();
     drawBoy();
 
     if (isRunning == false){
