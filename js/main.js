@@ -31,7 +31,7 @@ function init() {
 init();
 
 
-   
+
 
 
 var drawInterval = setInterval(() => {
@@ -98,7 +98,7 @@ var drawInterval = setInterval(() => {
     drawClouds();
     drawHiids();
     drawShavars();
-    drawDogs();
+    drawDogs(); 
     drawLamps();
     drawBoy();
 
@@ -131,7 +131,7 @@ function drawBoy() {
             step++;
      time++;
     } else {
-     
+
         if(step > 3){
             // isRunning = true;
             step = 0;
