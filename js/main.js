@@ -29,16 +29,32 @@ function init() {
 }
 
 init();
-
-
-
-
-
+function stopGame(){
+    console.log("gameOver");
+    return;
+}
+function checkCollision() {
+    
+    if ( boy.width + boy.x >= dogs[0].x + 20 && boy.height + boy.y >= shavars[0].y) {
+        return true;
+        
+    }
+    if ( boy.width + boy.x >= shavars[0].x + 20 && boy.height + boy.y >= shavars[0].y) {
+        return true;
+        
+    }
+    if ( boy.width + boy.x >= nvhs[0].x + 20 && boy.height + boy.y >= nvhs[0].y) {
+        return true;
+        
+    }
+    return false;
+}
 var drawInterval = setInterval(() => {
 
     // cloud movements
     clouds.forEach(element => {
         element.x -= 1;
+        
     });
 
     lands.forEach(element => {
@@ -124,6 +140,10 @@ var drawInterval = setInterval(() => {
 
 
 function drawBoy() {
+    if (checkCollision()) {
+        stopGame();
+        return true;
+    }
     if (isRunning){
         if (step > 2) {step = 0;}
         ctx.drawImage(boyWalk[step], boy.x, boy.y, boy.height, boy.width);
@@ -131,6 +151,10 @@ function drawBoy() {
             step++;
      time++;
     } else {
+
+        if(step > 2){
+
+        }
 
         if(step > 3){
             // isRunning = true;
@@ -168,7 +192,9 @@ function drawBoy() {
         }
         time++;
     }
+
 }
+
 document.onkeyup = function (event) {
     if (event.key == " " && isRunning == true) {
         console.log("JUMP");
