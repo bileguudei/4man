@@ -6,9 +6,6 @@ let step = 0;
 let speed, goingUp;
 let gravity = 0.2;
 
-
-
-
 window.addEventListener('resize', resizeCanvas, false);
 
 resizeCanvas();
