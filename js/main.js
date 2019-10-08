@@ -122,7 +122,7 @@ var drawInterval = setInterval(() => {
         // console.log(speed, goingUp);
     }
 
-}, 20);
+},10);
 
 
 function drawBoy() {
@@ -149,21 +149,21 @@ function drawBoy() {
         zurag1.src = "./images/boy-jump-2.png";
 
         if(step == 1){
-        ctx.drawImage(zurag1, boy.x, boy.y, boy.height - 9, boy.width);
+        ctx.drawImage(zurag1, boy.x, boy.y, boy.height -9, boy.width);
         }
 
         var zurag2 = new Image();
         zurag2.src = "./images/boy-jump-3.png";
 
         if(step == 2){
-        ctx.drawImage(zurag2, boy.x, boy.y, boy.height + 23, boy.width);
+        ctx.drawImage(zurag2, boy.x, boy.y, boy.height + 25 , boy.width);
         } 
 
         var zurag3 = new Image();
         zurag3.src = "./images/boy-jump-4.png";
 
         if(step == 3){
-            ctx.drawImage(zurag3, boy.x, boy.y, boy.height + 70, boy.width);
+            ctx.drawImage(zurag3, boy.x, boy.y, boy.height + 60, boy.width);
         }  
         if(time % 32 == 0){
             step++;

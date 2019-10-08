@@ -189,7 +189,7 @@ function drawDogs() {
             if(alhalt == 1){
                 ctx.drawImage(bulldog1, element.x, element.y, element.h, element.w);
             }
-            if(hugatsaa % 32 == 0){
+            if(hugatsaa % 10 == 0){
                 alhalt++;
             }
             hugatsaa++;
