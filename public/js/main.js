@@ -6,9 +6,6 @@ let step = 0;
 let speed, goingUp;
 let gravity = 0.2;
 
-
-
-
 window.addEventListener('resize', resizeCanvas, false);
 
 resizeCanvas();
@@ -34,7 +31,23 @@ function stopGame(){
     return;
 }
 function checkCollision() {
-    
+    // console.log(boy);
+    // console.log(dogs[0]);
+
+    if ( boy.x < dogs[0].x && dogs[0].x < boy.x + boy.width){
+        if (boy.y < dogs[0].y && dogs[0].y < boy.y + boy.height){
+            console.log("1TRUE");
+            return true;
+        }
+    }
+    if ( boy.x < dogs[0].x + dogs[0].width && dogs[0].x + dogs[0].width < boy.x + boy.width){
+        if (boy.y < dogs[0].y && dogs[0].y < boy.y + boy.height){
+            console.log("2TRUE");
+            return true;
+        }
+    }
+
+
     if ( boy.width + boy.x >= dogs[0].x + 20 && boy.height + boy.y >= shavars[0].y) {
         return true;
         
@@ -136,7 +149,7 @@ var drawInterval = setInterval(() => {
         // console.log(speed, goingUp);
     }
 
-}, 20);
+},10);
 
 
 function drawBoy() {
@@ -171,21 +184,21 @@ function drawBoy() {
         zurag1.src = "./images/boy-jump-2.png";
 
         if(step == 1){
-        ctx.drawImage(zurag1, boy.x, boy.y, boy.height - 9, boy.width);
+        ctx.drawImage(zurag1, boy.x, boy.y, boy.height -9, boy.width);
         }
 
         var zurag2 = new Image();
         zurag2.src = "./images/boy-jump-3.png";
 
         if(step == 2){
-        ctx.drawImage(zurag2, boy.x, boy.y, boy.height + 23, boy.width);
+        ctx.drawImage(zurag2, boy.x, boy.y, boy.height + 13 , boy.width);
         } 
 
         var zurag3 = new Image();
         zurag3.src = "./images/boy-jump-4.png";
 
         if(step == 3){
-            ctx.drawImage(zurag3, boy.x, boy.y, boy.height + 70, boy.width);
+            ctx.drawImage(zurag3, boy.x, boy.y, boy.height + 50, boy.width);
         }  
         if(time % 32 == 0){
             step++;

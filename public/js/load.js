@@ -36,6 +36,12 @@ let boyWalk = [];
     img.src = "./images/boy-walk-" + val + ".png";
     boyWalk.push(img);
 });
+let girlWalk = [];
+[0, 1, 2].forEach(function(vil){
+    let zurg = new Image();
+    zurg.src = "./images/girl-walk-" + vil + ".png";
+    girlWalk.push(zurg);
+})
 /*
 let dogWalk = [];
 [0, 1, 2].forEach(function (vol){
