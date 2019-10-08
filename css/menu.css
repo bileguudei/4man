@@ -6,7 +6,7 @@ body{
 }
 
 .fullpage {
-    background-image: url('../images/Artboard\ 3.png');
+    background-image: url('../images/background-menu.png');
     background-size: cover;
     height: 100%;
     width: 100%;
@@ -23,12 +23,10 @@ body{
    
 }
 .login2 {
-    background-image: url('../images/ohinlogin.png');
+    background-image: url('../images/lockedohin.png');
     background-size: cover;
     height: 50vh;
     width: 50vh;
-
-    
 }
 
 @media only screen and (orientation:portrait){  
@@ -38,4 +36,19 @@ body{
         transform: rotate(90deg);
         transform-origin: calc(50vw) calc(50vw);
     } 
+
+    .login1 {
+        background-image: url('../images/P_boylogin.png');
+        background-size: cover;
+        height: 25vh;
+        width: 25vh;
+       
+    }
+
+    .login2 {
+        background-image: url('../images/ohinlogin.png');
+        background-size: cover;
+        height: 25vh;
+        width: 25vh;
+    }
 }
