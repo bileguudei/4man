@@ -58,7 +58,7 @@ var drawInterval = setInterval(() => {
     });
 
     lands.forEach(element => {
-       element.x -= 2;
+       element.x -= 3;
     })
 
     baishins.forEach(element => {
@@ -78,11 +78,11 @@ var drawInterval = setInterval(() => {
     })
 
     nvhs.forEach(element => {
-        element.x -= 2;
+        element.x -= 3;
     });
 
     dogs.forEach(element => {
-        element.x -= 3;
+        element.x -= 4;
     });
 
     lamps.forEach(element => {
@@ -90,7 +90,7 @@ var drawInterval = setInterval(() => {
     });
 
     shavars.forEach(element => {
-        element.x -= 2;
+        element.x -= 3;
     });
 
     hiids.forEach(element => {
