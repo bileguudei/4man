@@ -34,7 +34,23 @@ function stopGame(){
     return;
 }
 function checkCollision() {
-    
+    // console.log(boy);
+    // console.log(dogs[0]);
+
+    if ( boy.x < dogs[0].x && dogs[0].x < boy.x + boy.width){
+        if (boy.y < dogs[0].y && dogs[0].y < boy.y + boy.height){
+            console.log("1TRUE");
+            return true;
+        }
+    }
+    if ( boy.x < dogs[0].x + dogs[0].width && dogs[0].x + dogs[0].width < boy.x + boy.width){
+        if (boy.y < dogs[0].y && dogs[0].y < boy.y + boy.height){
+            console.log("2TRUE");
+            return true;
+        }
+    }
+
+
     if ( boy.width + boy.x >= dogs[0].x + 20 && boy.height + boy.y >= shavars[0].y) {
         return true;
         
