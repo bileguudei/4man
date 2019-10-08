@@ -139,13 +139,13 @@ function drawLamps() {
         }
     });
 
-    /*if (lamps.length < 2) {
-        let xPos = 520;
+    if (lamps.length < 5) {
+        let xPos = 650;
         let yPos = 0.67 * parseInt(canvas.height);
         let w = 0.07 * parseInt(canvas.height) * 1;
         let h = 0.15 * parseInt(canvas.height);
         lamps.push({ x: xPos, y: yPos, w: w, h: h })
-    }*/
+    }
 }
 
 
@@ -210,9 +210,9 @@ function drawBaishins() {
 
     if (dogs.length < 1) {
         let xPos = 650;
-        let yPos = 0.75 * parseInt(canvas.height);
-        let w = 0.15 * parseInt(canvas.height);
-        let h = 0.15 * parseInt(canvas.height);
+        let yPos = 0.8 * parseInt(canvas.height);
+        let w = 0.1 * parseInt(canvas.height);
+        let h = 0.1 * parseInt(canvas.height);
         dogs.push({ x: xPos, y: yPos, w: w, h: h })
     }
 }

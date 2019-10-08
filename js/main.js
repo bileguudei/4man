@@ -113,9 +113,9 @@ var drawInterval = setInterval(() => {
     drawNvhs();
     drawClouds();
     drawHiids();
+    drawLamps();
     drawShavars();
     drawDogs(); 
-    drawLamps();
     drawBoy();
 
     if (isRunning == false){
