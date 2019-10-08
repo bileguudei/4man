@@ -83,7 +83,7 @@ var drawInterval = setInterval(() => {
     });
 
     lands.forEach(element => {
-       element.x -= 2;
+       element.x -= 3;
     })
 
     baishins.forEach(element => {
@@ -103,11 +103,11 @@ var drawInterval = setInterval(() => {
     })
 
     nvhs.forEach(element => {
-        element.x -= 2;
+        element.x -= 3;
     });
 
     dogs.forEach(element => {
-        element.x -= 3;
+        element.x -= 4;
     });
 
     lamps.forEach(element => {
@@ -115,7 +115,7 @@ var drawInterval = setInterval(() => {
     });
 
     shavars.forEach(element => {
-        element.x -= 2;
+        element.x -= 3;
     });
 
     hiids.forEach(element => {
@@ -203,14 +203,14 @@ function drawBoy() {
         zurag2.src = "./images/boy-jump-3.png";
 
         if(step == 2){
-        ctx.drawImage(zurag2, boy.x, boy.y, boy.height + 25 , boy.width);
+        ctx.drawImage(zurag2, boy.x, boy.y, boy.height + 13 , boy.width);
         } 
 
         var zurag3 = new Image();
         zurag3.src = "./images/boy-jump-4.png";
 
         if(step == 3){
-            ctx.drawImage(zurag3, boy.x, boy.y, boy.height + 60, boy.width);
+            ctx.drawImage(zurag3, boy.x, boy.y, boy.height + 50, boy.width);
         }  
         if(time % 32 == 0){
             step++;
