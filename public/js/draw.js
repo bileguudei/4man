@@ -1,4 +1,7 @@
 function drawGeruud() {
+    if (geruud.length != 0 && geruud[0].x < -100){
+        geruud.shift();
+    }
 
     geruud.forEach(element => {
         if (!(element.x + element.w < 0 && element.x > canvas.width)) {
@@ -7,11 +10,11 @@ function drawGeruud() {
     });
 
     if (geruud.length < 1) {
-        let xPos = 650;
-        let yPos = 0.75 * parseInt(canvas.height);
-        let w = 0.2 * parseInt(canvas.height);
-        let h = 0.1 * parseInt(canvas.height);
-        dogs.push({ x: xPos, y: yPos, w: w, h: h})
+        let xPos = 600;
+        let yPos = 0.6 * parseInt(canvas.height);
+        let w = 0.3 * parseInt(canvas.height) * 1;
+        let h = 0.2 * parseInt(canvas.height);
+        geruud.push({ x: xPos, y: yPos, w: w, h: h})
     }
 }
 
@@ -27,16 +30,20 @@ function drawHiids() {
         }
     });
  
-    /*if (hiids.length < 1) {
-        let xPos = 
-        let yPos = 0.8 * parseInt(canvas.height);
-        let w = parseInt(canvas.height);
-        let h = 0.2 * parseInt(canvas.height);
+    if (hiids.length < 1) {
+        let xPos = 600;
+        let yPos = 0.4 * parseInt(canvas.height);
+        let w = 0.4 * parseInt(canvas.height) * 1;
+        let h = 0.4 * parseInt(canvas.height);
         hiids.push({ x: xPos, y: yPos, w: w, h: h})
-    }*/
+    }
 }
 
 function drawStatus() {
+    if (status.length != 0 && status[0].x < -100){
+        status.shift();
+    }
+
     status.forEach(element => {
         if (!(element.x + element.w < 0 && element.x > canvas.width)) {
             ctx.drawImage(imgStatu, element.x, element.y, element.w, element.h);
@@ -44,7 +51,11 @@ function drawStatus() {
     });
 
     if (status.length < 1) {
-        let 
+        let xPos = 600;
+        let yPos = 0.45 * parseInt(canvas.height);
+        let w = 0.3 * parseInt(canvas.height) * 1;
+        let h = 0.35 * parseInt(canvas.height);
+        status.push({ x: xPos, y: yPos, w: w, h: h})
     }
 }
 
@@ -63,7 +74,7 @@ function drawBlueskys() {
     });
 
     if (blueskys.length < 1) {
-        let xPos = 850;
+        let xPos = 600;
         let yPos = 0.18 * parseInt(canvas.height);
         let w = 0.4 * parseInt(canvas.height) * 1 ;
         let h = 0.63 * parseInt(canvas.height);
@@ -96,7 +107,7 @@ function drawLands() {
 
 
 function drawClouds() {
-    if (clouds.length != 0 && clouds[0].x < 0) {
+    if (clouds.length != 0 && clouds[0].x < -100) {
         clouds.shift();
     }
 
@@ -106,19 +117,19 @@ function drawClouds() {
         }
     });
 
-    /*if (clouds.length < 3) {
-        let xPos = 
-        let yPos = 
-        let w = 
-        let h = 
+    if (clouds.length < 3) {
+        let xPos = 600;
+        let yPos = 0.1 * parseInt(canvas.height);
+        let w = 0.3 * parseInt(canvas.height) * 1;
+        let h = 0.2 * parseInt(canvas.height);
         clouds.push({ x: xPos, y: yPos, w: w, h: h })
-    }*/
+    }
 }
 
 
 
 function drawLamps() {
-    if (lamps.length != 0 && lamps[0].x < -100) {
+    if (lamps.length != 0 && lamps[0].x < -50) {
         lamps.shift();
     }
 
@@ -128,9 +139,9 @@ function drawLamps() {
         }
     });
 
-    if (lamps.length < 3) {
-        let xPos = 20;
-        let yPos = 0.65 * parseInt(canvas.height);
+    if (lamps.length < 5) {
+        let xPos = 650;
+        let yPos = 0.67 * parseInt(canvas.height);
         let w = 0.07 * parseInt(canvas.height) * 1;
         let h = 0.15 * parseInt(canvas.height);
         lamps.push({ x: xPos, y: yPos, w: w, h: h })
@@ -152,7 +163,7 @@ function drawBaishins() {
     });
 
     if (baishins.length < 1){
-        let xPos = 760;
+        let xPos = 600;
         let yPos = 0.5 * parseInt(canvas.height)
         let w = 0.3 * parseInt(canvas.height) * 1;
         let h = 0.3 * parseInt(canvas.height);
@@ -160,9 +171,9 @@ function drawBaishins() {
     } 
 
 }
-let alhalt = 0;
-let hugatsaa = 0;
-function drawDogs() {
+    let alhalt = 0;
+    let hugatsaa = 0;
+    function drawDogs() {
     
 
     
@@ -199,9 +210,9 @@ function drawDogs() {
 
     if (dogs.length < 1) {
         let xPos = 650;
-        let yPos = 0.75 * parseInt(canvas.height);
-        let w = 0.15 * parseInt(canvas.height);
-        let h = 0.15 * parseInt(canvas.height);
+        let yPos = 0.8 * parseInt(canvas.height);
+        let w = 0.1 * parseInt(canvas.height);
+        let h = 0.1 * parseInt(canvas.height);
         dogs.push({ x: xPos, y: yPos, w: w, h: h })
     }
 }
@@ -222,14 +233,13 @@ function drawShavars() {
     });
 
     if (shavars.length < 2) {
-        let xPos = 500;
+        let xPos = 600;
         let yPos = 0.85 * parseInt(canvas.height);
         let w = 0.12 * parseInt(canvas.height) * 1;
         let h = 0.07 * parseInt(canvas.height);
         shavars.push({ x: xPos, y: yPos, w: w, h: h })
     }
 }
-
 
 
 function drawNvhs() {
@@ -243,8 +253,8 @@ function drawNvhs() {
         }
     });
 
-    if (nvhs.length < 2) {
-        let xPos = 450;
+    if (nvhs.length < 1) {
+        let xPos = 550;
         let yPos = 0.86 * parseInt(canvas.height);
         let w = 0.1 * parseInt(canvas.height) * 1;
         let h = 0.05 * parseInt(canvas.height);

@@ -6,9 +6,6 @@ let step = 0;
 let speed, goingUp;
 let gravity = 0.2;
 
-
-
-
 window.addEventListener('resize', resizeCanvas, false);
 
 resizeCanvas();
@@ -29,16 +26,48 @@ function init() {
 }
 
 init();
+function stopGame(){
+    console.log("gameOver");
+    return;
+}
+function checkCollision() {
+    // console.log(boy);
+    // console.log(dogs[0]);
+
+    if ( boy.x < dogs[0].x && dogs[0].x < boy.x + boy.width){
+        if (boy.y < dogs[0].y && dogs[0].y < boy.y + boy.height){
+            console.log("1TRUE");
+            return true;
+        }
+    }
+    if ( boy.x < dogs[0].x + dogs[0].width && dogs[0].x + dogs[0].width < boy.x + boy.width){
+        if (boy.y < dogs[0].y && dogs[0].y < boy.y + boy.height){
+            console.log("2TRUE");
+            return true;
+        }
+    }
 
 
-   
-
-
+    if ( boy.width + boy.x >= dogs[0].x + 20 && boy.height + boy.y >= shavars[0].y) {
+        return true;
+        
+    }
+    if ( boy.width + boy.x >= shavars[0].x + 20 && boy.height + boy.y >= shavars[0].y) {
+        return true;
+        
+    }
+    if ( boy.width + boy.x >= nvhs[0].x + 20 && boy.height + boy.y >= nvhs[0].y) {
+        return true;
+        
+    }
+    return false;
+}
 var drawInterval = setInterval(() => {
 
     // cloud movements
     clouds.forEach(element => {
         element.x -= 1;
+        
     });
 
     lands.forEach(element => {
@@ -62,11 +91,11 @@ var drawInterval = setInterval(() => {
     })
 
     nvhs.forEach(element => {
-        element.x -= 1;
+        element.x -= 2;
     });
 
     dogs.forEach(element => {
-        element.x -= 1;
+        element.x -= 3;
     });
 
     lamps.forEach(element => {
@@ -74,7 +103,7 @@ var drawInterval = setInterval(() => {
     });
 
     shavars.forEach(element => {
-        element.x -= 1;
+        element.x -= 2;
     });
 
     hiids.forEach(element => {
@@ -93,15 +122,13 @@ var drawInterval = setInterval(() => {
     drawStatus();
     drawGeruud();
     drawBlueskys();
-    drawShavars();
-    drawDogs();
     drawBaishins();
-    drawLamps();
     drawNvhs();
     drawClouds();
     drawHiids();
-
-    // ctx.drawImage(imgPe1, boy.x, boy.y, boy.height, boy.width);
+    drawLamps();
+    drawShavars();
+    drawDogs(); 
     drawBoy();
 
     if (isRunning == false){
@@ -126,6 +153,10 @@ var drawInterval = setInterval(() => {
 
 
 function drawBoy() {
+    if (checkCollision()) {
+        stopGame();
+        return true;
+    }
     if (isRunning){
         if (step > 2) {step = 0;}
         ctx.drawImage(boyWalk[step], boy.x, boy.y, boy.height, boy.width);
@@ -133,7 +164,11 @@ function drawBoy() {
             step++;
      time++;
     } else {
-     
+
+        if(step > 2){
+
+        }
+
         if(step > 3){
             // isRunning = true;
             step = 0;
@@ -170,7 +205,9 @@ function drawBoy() {
         }
         time++;
     }
+
 }
+
 document.onkeyup = function (event) {
     if (event.key == " " && isRunning == true) {
         console.log("JUMP");
