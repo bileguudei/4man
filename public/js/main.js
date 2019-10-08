@@ -191,14 +191,14 @@ function drawBoy() {
         zurag2.src = "./images/boy-jump-3.png";
 
         if(step == 2){
-        ctx.drawImage(zurag2, boy.x, boy.y, boy.height + 25 , boy.width);
+        ctx.drawImage(zurag2, boy.x, boy.y, boy.height + 13 , boy.width);
         } 
 
         var zurag3 = new Image();
         zurag3.src = "./images/boy-jump-4.png";
 
         if(step == 3){
-            ctx.drawImage(zurag3, boy.x, boy.y, boy.height + 60, boy.width);
+            ctx.drawImage(zurag3, boy.x, boy.y, boy.height + 50, boy.width);
         }  
         if(time % 32 == 0){
             step++;
