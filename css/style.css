@@ -34,3 +34,8 @@
 canvas {
     background-color: lightblue;
 }
+
+#onoo{
+    position:fixed;
+    left: 50px;
+}
