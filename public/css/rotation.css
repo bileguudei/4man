@@ -1,10 +1,17 @@
- body{
+body{
     margin: 0;
-    display: flex;
-    justify-content: center;
     height: 100vh;
     width: 100vw;
     overflow: hidden;
+}
+
+@media only screen and (orientation:portrait){  
+    body{
+        width: 100vh;
+        height: 100vw;
+        transform: rotate(90deg);
+        transform-origin: calc(50vw) calc(50vw);
+    } 
 }
 .but1 {
     background-color: black;
@@ -31,6 +38,7 @@
     margin: 10px 10px;
     cursor: pointer;
 }
-canvas {
-    background-color: lightblue;
+
+.container {
+    width: 100%;
 }

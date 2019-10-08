@@ -98,7 +98,7 @@ var drawInterval = setInterval(() => {
     });
 
     dogs.forEach(element => {
-        element.x -= 2;
+        element.x -= 3;
     });
 
     lamps.forEach(element => {
