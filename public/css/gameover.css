@@ -106,7 +106,7 @@ body{
         margin-bottom: 5vh;
         color: #FFF;
         font-family: Orbitron;
-        font-size: 20px;
+        font-size: 30px;
         line-height: 30px;
         text-align: center;
     }
@@ -114,14 +114,14 @@ body{
         margin-bottom: 15vh;
         color: #FFF;
         font-family: Orbitron;
-        font-size: 20px;
+        font-size: 30px;
         line-height: 30px;
         text-align: center;
     }
     .gameover {
         color: #D19324;
         font-family: Arial;
-        font-size: 30px;
+        font-size: 40px;
         line-height: 89px;
         text-align: center;
         margin-bottom: 20px; 
