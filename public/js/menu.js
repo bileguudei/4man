@@ -1,3 +1,3 @@
 function loginDuud(){
-    location.replace("vndsen.html");
+    location.replace("index.html");
 }

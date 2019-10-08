@@ -27,8 +27,7 @@ function init() {
 
 init();
 function stopGame(){
-    console.log("gameOver");
-    return;
+    location.replace("gameover.html");
 }
 function checkCollision() {
     if ( boy.x + 10 < dogs[0].x && dogs[0].x < boy.x + boy.height - 10){
