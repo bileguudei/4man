@@ -27,38 +27,49 @@ function init() {
 
 init();
 function stopGame(){
-    console.log("gameOver");
-    return;
+    location.replace("gameover.html");
 }
 function checkCollision() {
-    // console.log(boy);
-    // console.log(dogs[0]);
-
-    if ( boy.x < dogs[0].x && dogs[0].x < boy.x + boy.width){
-        if (boy.y < dogs[0].y && dogs[0].y < boy.y + boy.height){
+    if ( boy.x + 10 < dogs[0].x && dogs[0].x < boy.x + boy.height - 10){
+        if (boy.y + 10 < dogs[0].y && dogs[0].y < boy.y + boy.width - 10){
             console.log("1TRUE");
             return true;
         }
     }
-    if ( boy.x < dogs[0].x + dogs[0].width && dogs[0].x + dogs[0].width < boy.x + boy.width){
-        if (boy.y < dogs[0].y && dogs[0].y < boy.y + boy.height){
+    if ( boy.x + 10 < dogs[0].x + dogs[0].w && dogs[0].x + dogs[0].w < boy.x + boy.height + 10){
+        if (boy.y + 10 < dogs[0].y && dogs[0].y < boy.y + boy.width - 10){
             console.log("2TRUE");
             return true;
         }
     }
 
+    if ( boy.x + 10 < shavars[0].x - 5 && shavars[0].x - 5 < boy.x + boy.height - 10){
+        if (boy.y + 10 < shavars[0].y - 5 && shavars[0].y- 5 < boy.y + boy.width - 10){
+            console.log("COLL SHAVAR1");
+            return true;
+        }
+    }
 
-    if ( boy.width + boy.x >= dogs[0].x + 20 && boy.height + boy.y >= shavars[0].y) {
-        return true;
-        
+    if ( boy.x < shavars[0].x + shavars[0].w - 10 && shavars[0].x + shavars[0].w - 10 < boy.x + boy.height){
+        if (boy.y < shavars[0].y - 5 && shavars[0].y - 5 < boy.y + boy.width){
+            console.log("COLL SHAVAR2");
+            return true;
+        }
     }
-    if ( boy.width + boy.x >= shavars[0].x + 20 && boy.height + boy.y >= shavars[0].y) {
-        return true;
-        
+
+
+    if ( boy.x < nvhs[0].x - 5 && nvhs[0].x - 5 < boy.x + boy.height){
+        if (boy.y < nvhs[0].y - 5 && nvhs[0].y - 5 < boy.y + boy.width){
+            console.log("COLL NUH");
+            return true;
+        }
     }
-    if ( boy.width + boy.x >= nvhs[0].x + 20 && boy.height + boy.y >= nvhs[0].y) {
-        return true;
-        
+
+    if ( boy.x < nvhs[0].x + nvhs[0].w - 10 && nvhs[0].x + nvhs[0].w - 10 < boy.x + boy.height){
+        if (boy.y < nvhs[0].y - 5 && nvhs[0].y - 5 < boy.y + boy.width){
+            console.log("COLL NUH");
+            return true;
+        }
     }
     return false;
 }
@@ -71,7 +82,7 @@ var drawInterval = setInterval(() => {
     });
 
     lands.forEach(element => {
-       element.x -= 2;
+       element.x -= 3;
     })
 
     baishins.forEach(element => {
@@ -91,11 +102,11 @@ var drawInterval = setInterval(() => {
     })
 
     nvhs.forEach(element => {
-        element.x -= 2;
+        element.x -= 3;
     });
 
     dogs.forEach(element => {
-        element.x -= 3;
+        element.x -= 4;
     });
 
     lamps.forEach(element => {
@@ -103,7 +114,7 @@ var drawInterval = setInterval(() => {
     });
 
     shavars.forEach(element => {
-        element.x -= 2;
+        element.x -= 1;
     });
 
     hiids.forEach(element => {

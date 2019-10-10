@@ -232,8 +232,8 @@ function drawShavars() {
         }
     });
 
-    if (shavars.length < 2) {
-        let xPos = 600;
+    if (shavars.length < 1) {
+        let xPos = 800;
         let yPos = 0.85 * parseInt(canvas.height);
         let w = 0.12 * parseInt(canvas.height) * 1;
         let h = 0.07 * parseInt(canvas.height);

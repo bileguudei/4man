@@ -1,0 +1,145 @@
+body{
+    margin: 0;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+}
+
+.fullpage {
+    background-image: url('../images/background.png');
+    background-size: cover;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.huu {
+    height: 50vh;
+    width: 50vh;
+}
+
+.row {
+    display: flex;
+    justify-content: space-around;
+    /* width: 30vw; */
+    /* height: auto; */
+}
+
+.col{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 50vw;
+}
+
+.restart {
+    margin-bottom: 5vh;
+    color: #FFF;
+    font-family: Orbitron;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.mainmenu {
+    margin-bottom: 15vh;
+    color: #FFF;
+    font-family: Orbitron;
+    font-size: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+.gameover {
+    color: #D19324;
+    font-family: Arial;
+    font-size: 40px;
+    line-height: 89px;
+    text-align: center;
+    margin-bottom: 20px; 
+  }
+
+
+  @media only screen and (orientation:portrait){  
+    body{
+        margin: 0;
+        height: 100vw;
+        width: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        transform: rotate(90deg);
+        transform-origin: calc(50vw) calc(50vw);
+    } 
+
+
+    .fullpage {
+        background-image: url('../images/background.png');
+        background-size: cover;
+        height: 100vw;
+        width: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .huu {
+        height: 25vh;
+        width: 25vh;
+    }
+
+    .gameover {
+        color: #D19324;
+        font-family: Arial;
+        font-size: 4s0px;
+        line-height: 89px;
+        text-align: center;
+        margin-bottom: 20px; 
+      }
+
+      .restart {
+        margin-bottom: 5vh;
+        color: #FFF;
+        font-family: Orbitron;
+        font-size: 30px;
+        line-height: 30px;
+        text-align: center;
+    }
+    .mainmenu {
+        margin-bottom: 15vh;
+        color: #FFF;
+        font-family: Orbitron;
+        font-size: 30px;
+        line-height: 30px;
+        text-align: center;
+    }
+    .gameover {
+        color: #D19324;
+        font-family: Arial;
+        font-size: 40px;
+        line-height: 89px;
+        text-align: center;
+        margin-bottom: 20px; 
+      }
+
+      .row {
+        display: flex;
+        justify-content: space-around;
+        /* width: 30vw; */
+        /* height: auto; */
+    }
+    
+    .col{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        width: 50vh;
+    }
+      
+}
