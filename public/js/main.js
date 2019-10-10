@@ -159,7 +159,12 @@ function drawBoy() {
     }
     if (isRunning){
         if (step > 2) {step = 0;}
-        ctx.drawImage(boyWalk[step], boy.x, boy.y, boy.height, boy.width);
+
+        if (localStorage.getItem("gender") == "boy")
+            ctx.drawImage(boyWalk[step], boy.x, boy.y, boy.height, boy.width);
+        else
+            ctx.drawImage(girlWalk[step], boy.x, boy.y, boy.height, boy.width);
+
         if (time % 16 == 0)
             step++;
      time++;
@@ -174,28 +179,40 @@ function drawBoy() {
             step = 0;
         }
         var zurag = new Image();
-        zurag.src = "./images/boy-jump-1.png";
+        if (localStorage.getItem("gender") == "boy")
+            zurag.src = "./images/boy-jump-1.png";
+        else
+            zurag.src = "./images/girl-jump-1.png";
 
         if(step == 0){
-        ctx.drawImage(zurag, boy.x, boy.y, boy.height - 9, boy.width);
+            ctx.drawImage(zurag, boy.x, boy.y, boy.height - 9, boy.width);
         }
 
         var zurag1= new Image();
-        zurag1.src = "./images/boy-jump-2.png";
+        if (localStorage.getItem("gender") == "boy")
+            zurag1.src = "./images/boy-jump-2.png";
+        else
+            zurag1.src = "./images/girl-jump-2.png";
 
         if(step == 1){
         ctx.drawImage(zurag1, boy.x, boy.y, boy.height -9, boy.width);
         }
 
         var zurag2 = new Image();
-        zurag2.src = "./images/boy-jump-3.png";
+        if (localStorage.getItem("gender") == "boy")
+            zurag2.src = "./images/boy-jump-3.png";
+        else
+            zurag2.src = "./images/girl-jump-3.png";
 
         if(step == 2){
         ctx.drawImage(zurag2, boy.x, boy.y, boy.height + 13 , boy.width);
         } 
 
         var zurag3 = new Image();
-        zurag3.src = "./images/boy-jump-4.png";
+        if (localStorage.getItem("gender") == "boy")
+            zurag3.src = "./images/boy-jump-4.png";
+        else
+            zurag3.src = "./images/girl-jump-4.png";
 
         if(step == 3){
             ctx.drawImage(zurag3, boy.x, boy.y, boy.height + 50, boy.width);
