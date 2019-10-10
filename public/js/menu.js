@@ -1,10 +1,10 @@
 function playBoy(){
     localStorage.setItem("gender", "boy");
-    location.replace("vndsen.html");
+    location.replace("index.html");
 }
 
 
 function playGirl(){
     localStorage.setItem("gender", "boy");
-    location.replace("vndsen.html");
+    location.replace("index.html");
 }
