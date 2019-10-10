@@ -5,6 +5,6 @@ function playBoy(){
 
 
 function playGirl(){
-    localStorage.setItem("gender", "boy");
+    localStorage.setItem("gender", "girl");
     location.replace("index.html");
 }
