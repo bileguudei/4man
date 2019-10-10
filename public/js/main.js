@@ -69,7 +69,7 @@ function checkCollision() {
             return true;
         }
     }
-    return false; 
+    return false;
 }
 var drawInterval = setInterval(() => {
 
@@ -164,11 +164,16 @@ var drawInterval = setInterval(() => {
 function drawBoy() {
     if (checkCollision()) {
 <<<<<<< HEAD
+<<<<<<< HEAD
 
 =======
         
 >>>>>>> f0e22a4b50ee2d22e22d7a5534e3aa0d55d94ea9
+=======
+         
+>>>>>>> f61ce906c27ec9ce526189668b331d2c1f0ff941
         stopGame();
+        
         return true;
     }
     if (isRunning){
