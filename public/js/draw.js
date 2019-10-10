@@ -30,7 +30,7 @@ function drawHiids() {
         }
     });
  
-    if (hiids.length < 1) {
+    if (hiids.length < 1) { 
         let xPos = 600;
         let yPos = 0.4 * parseInt(canvas.height);
         let w = 0.4 * parseInt(canvas.height) * 1;
@@ -209,7 +209,7 @@ function drawBaishins() {
     });
 
     if (dogs.length < 1) {
-        let xPos = 650;
+        let xPos = 950;
         let yPos = 0.8 * parseInt(canvas.height);
         let w = 0.1 * parseInt(canvas.height);
         let h = 0.1 * parseInt(canvas.height);
@@ -233,7 +233,7 @@ function drawShavars() {
     });
 
     if (shavars.length < 1) {
-        let xPos = 800;
+        let xPos = Math.round(1200 + 200 * Math.random());
         let yPos = 0.85 * parseInt(canvas.height);
         let w = 0.12 * parseInt(canvas.height) * 1;
         let h = 0.07 * parseInt(canvas.height);
@@ -254,7 +254,7 @@ function drawNvhs() {
     });
 
     if (nvhs.length < 1) {
-        let xPos = 550;
+        let xPos = Math.round(1000 + 200 * Math.random());
         let yPos = 0.86 * parseInt(canvas.height);
         let w = 0.1 * parseInt(canvas.height) * 1;
         let h = 0.05 * parseInt(canvas.height);
