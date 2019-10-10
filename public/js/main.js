@@ -30,43 +30,43 @@ function stopGame(){
     location.replace("gameover.html");
 }
 function checkCollision() {
-    if ( boy.x + 10 < dogs[0].x && dogs[0].x < boy.x + boy.height - 10){
-        if (boy.y + 10 < dogs[0].y && dogs[0].y < boy.y + boy.width - 10){
+    if ( boy.x + 10 < dogs[0].x + 30 && dogs[0].x + 30 < boy.x + boy.height - 10){
+        if (boy.y + 10 < dogs[0].y + 15 && dogs[0].y + 15< boy.y + boy.width - 10){
             console.log("1TRUE");
             return true;
         }
     }
-    if ( boy.x + 10 < dogs[0].x + dogs[0].w && dogs[0].x + dogs[0].w < boy.x + boy.height + 10){
-        if (boy.y + 10 < dogs[0].y && dogs[0].y < boy.y + boy.width - 10){
+    if ( boy.x + 10 < dogs[0].x + dogs[0].w + 30 && dogs[0].x + dogs[0].w + 30 < boy.x + boy.height + 10){
+        if (boy.y + 10 < dogs[0].y + 15 && dogs[0].y + 15 < boy.y + boy.width - 10){
             console.log("2TRUE");
             return true;
         }
     }
 
-    if ( boy.x + 10 < shavars[0].x + 20 && shavars[0].x - 20 < boy.x + boy.height - 10 ){
-        if (boy.y < shavars[0].y - 20 && shavars[0].y - 20 < boy.y + boy.width - 10 ){
+    if ( boy.x - 10 < shavars[0].x + 20 && shavars[0].x + 20 < boy.x + boy.height - 10 ){
+        if (boy.y < shavars[0].y && shavars[0].y < boy.y + boy.width - 10 ){
             console.log("COLL SHAVAR1");
             return true;
         }
     }
 
-    if ( boy.x + 10 < shavars[0].x + shavars[0].w - 20  && shavars[0].x + shavars[0].w  - 20 < boy.x + boy.height - 20){
-        if (boy.y < shavars[0].y  && shavars[0].y  < boy.y + boy.width){
+    if ( boy.x - 10 < shavars[0].x + shavars[0].w + 20  && shavars[0].x + shavars[0].w  + 20 < boy.x + boy.height - 10){
+        if (boy.y < shavars[0].y  && shavars[0].y < boy.y + boy.width - 10){
             console.log("COLL SHAVAR2");
             return true;
         }
     }
 
 
-    if ( boy.x < nvhs[0].x - 5 && nvhs[0].x - 5 < boy.x + boy.height){
-        if (boy.y < nvhs[0].y - 5 && nvhs[0].y - 5 < boy.y + boy.width){
+    if ( boy.x < nvhs[0].x + 20 && nvhs[0].x + 20 < boy.x + boy.height - 10){
+        if (boy.y < nvhs[0].y && nvhs[0].y < boy.y + boy.width - 10){
             console.log("COLL NUH");
             return true;
         }
     }
 
-    if ( boy.x < nvhs[0].x + nvhs[0].w - 10 && nvhs[0].x + nvhs[0].w - 10 < boy.x + boy.height){
-        if (boy.y < nvhs[0].y - 5 && nvhs[0].y - 5 < boy.y + boy.width){
+    if ( boy.x < nvhs[0].x + nvhs[0].w + 20 && nvhs[0].x + nvhs[0].w + 20 < boy.x + boy.height - 10){
+        if (boy.y < nvhs[0].y && nvhs[0].y < boy.y + boy.width - 10){
             console.log("COLL NUH");
             return true;
         }
@@ -114,7 +114,7 @@ var drawInterval = setInterval(() => {
     });
 
     shavars.forEach(element => {
-        element.x -= 1;
+        element.x -= 3;
     });
 
     hiids.forEach(element => {
@@ -170,7 +170,12 @@ function drawBoy() {
     }
     if (isRunning){
         if (step > 2) {step = 0;}
-        ctx.drawImage(boyWalk[step], boy.x, boy.y, boy.height, boy.width);
+
+        if (localStorage.getItem("gender") == "boy")
+            ctx.drawImage(boyWalk[step], boy.x, boy.y, boy.height, boy.width);
+        else
+            ctx.drawImage(girlWalk[step], boy.x, boy.y, boy.height, boy.width);
+
         if (time % 16 == 0)
             step++;
      time++;
@@ -185,28 +190,40 @@ function drawBoy() {
             step = 0;
         }
         var zurag = new Image();
-        zurag.src = "./images/boy-jump-1.png";
+        if (localStorage.getItem("gender") == "boy")
+            zurag.src = "./images/boy-jump-1.png";
+        else
+            zurag.src = "./images/girl-jump-1.png";
 
         if(step == 0){
-        ctx.drawImage(zurag, boy.x, boy.y, boy.height - 9, boy.width);
+            ctx.drawImage(zurag, boy.x, boy.y, boy.height - 9, boy.width);
         }
 
         var zurag1= new Image();
-        zurag1.src = "./images/boy-jump-2.png";
+        if (localStorage.getItem("gender") == "boy")
+            zurag1.src = "./images/boy-jump-2.png";
+        else
+            zurag1.src = "./images/girl-jump-2.png";
 
         if(step == 1){
         ctx.drawImage(zurag1, boy.x, boy.y, boy.height -9, boy.width);
         }
 
         var zurag2 = new Image();
-        zurag2.src = "./images/boy-jump-3.png";
+        if (localStorage.getItem("gender") == "boy")
+            zurag2.src = "./images/boy-jump-3.png";
+        else
+            zurag2.src = "./images/girl-jump-3.png";
 
         if(step == 2){
         ctx.drawImage(zurag2, boy.x, boy.y, boy.height + 13 , boy.width);
         } 
 
         var zurag3 = new Image();
-        zurag3.src = "./images/boy-jump-4.png";
+        if (localStorage.getItem("gender") == "boy")
+            zurag3.src = "./images/boy-jump-4.png";
+        else
+            zurag3.src = "./images/girl-jump-4.png";
 
         if(step == 3){
             ctx.drawImage(zurag3, boy.x, boy.y, boy.height + 50, boy.width);
