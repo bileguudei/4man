@@ -26,9 +26,7 @@ function init() {
 }
 
 init();
-function stopGame(){
-    location.replace("gameover.html");
-}
+
 function checkCollision() {
     if ( boy.x + 10 < dogs[0].x && dogs[0].x < boy.x + boy.height - 10){
         if (boy.y + 10 < dogs[0].y && dogs[0].y < boy.y + boy.width - 10){
@@ -165,6 +163,7 @@ var drawInterval = setInterval(() => {
 
 function drawBoy() {
     if (checkCollision()) {
+
         stopGame();
         return true;
     }
@@ -249,12 +248,17 @@ document.onkeyup = function (event) {
         goingUp = true;
     }
 }
-let onoo = 0;
+
+let onoo=0;
 var scoreInterval = setInterval(() => {
     onoo++;
     document.getElementById("onoo").innerHTML = onoo;
+    localStorage.setItem("Onoo", onoo);
 }, 200);
 
+function stopGame(){
+    location.replace("gameover.html");
+}
 
     // function jumpBoy(){   
     //     clearInterval(drawBoy);  
