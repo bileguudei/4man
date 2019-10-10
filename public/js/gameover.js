@@ -4,8 +4,9 @@ function test1(){
 function test2(){
     location.replace("menu.html");
 }
-var picture = new Image();
+
+
 if (localStorage.getItem("gender") == "boy")
-    picture.src = "./images/Tolgoi 1.png";
+    document.getElementsByClassName('row')[0].style.backgroundImage = "url('./images/boy-head.png')";
 else
-    picture.src = "./images/girl-head.png";
+    document.getElementsByClassName('row')[0].style.backgroundImage = "url('./images/girl-head.png')";
