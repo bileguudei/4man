@@ -5,14 +5,10 @@ function test1(){
 function test2(){
     location.replace("menu.html");
 }
-<<<<<<< HEAD
 var vOneLS = localStorage.getItem("Onoo");  
 var test=document.getElementById("score");
 test.innerHTML=vOneLS;
-=======
-var picture = new Image();
 if (localStorage.getItem("gender") == "boy")
-    picture.src = "./images/Tolgoi 1.png";
+    document.getElementsByClassName('row')[0].style.backgroundImage = "url('./images/boy-head.png')";
 else
-    picture.src = "./images/girl-head.png";
->>>>>>> f61ce906c27ec9ce526189668b331d2c1f0ff941
+    document.getElementsByClassName('row')[0].style.backgroundImage = "url('./images/girl-head.png')";
