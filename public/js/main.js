@@ -114,7 +114,7 @@ var drawInterval = setInterval(() => {
     });
 
     shavars.forEach(element => {
-        element.x -= 1;
+        element.x -= 3;
     });
 
     hiids.forEach(element => {
