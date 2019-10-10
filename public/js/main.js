@@ -165,6 +165,7 @@ var drawInterval = setInterval(() => {
 
 function drawBoy() {
     if (checkCollision()) {
+        
         stopGame();
         return true;
     }
