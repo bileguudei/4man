@@ -43,15 +43,15 @@ function checkCollision() {
         }
     }
 
-    if ( boy.x + 10 < shavars[0].x - 5 && shavars[0].x - 5 < boy.x + boy.height - 10){
-        if (boy.y + 10 < shavars[0].y - 5 && shavars[0].y- 5 < boy.y + boy.width - 10){
+    if ( boy.x + 10 < shavars[0].x + 20 && shavars[0].x - 20 < boy.x + boy.height - 10 ){
+        if (boy.y < shavars[0].y - 20 && shavars[0].y - 20 < boy.y + boy.width - 10 ){
             console.log("COLL SHAVAR1");
             return true;
         }
     }
 
-    if ( boy.x < shavars[0].x + shavars[0].w - 10 && shavars[0].x + shavars[0].w - 10 < boy.x + boy.height){
-        if (boy.y < shavars[0].y - 5 && shavars[0].y - 5 < boy.y + boy.width){
+    if ( boy.x + 10 < shavars[0].x + shavars[0].w - 20  && shavars[0].x + shavars[0].w  - 20 < boy.x + boy.height - 20){
+        if (boy.y < shavars[0].y  && shavars[0].y  < boy.y + boy.width){
             console.log("COLL SHAVAR2");
             return true;
         }
@@ -71,7 +71,7 @@ function checkCollision() {
             return true;
         }
     }
-    return false;
+    return false; 
 }
 var drawInterval = setInterval(() => {
 
