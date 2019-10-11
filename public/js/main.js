@@ -4,7 +4,7 @@ let isJumping = false;
 let time = 0;
 let step = 0;
 let speed, goingUp;
-let gravity = 0.2;
+let gravity = 0.1;
 
 window.addEventListener('resize', resizeCanvas, false);
 
@@ -153,12 +153,12 @@ var drawInterval = setInterval(() => {
         }
 
         if (boy.y == 0.65 * parseInt(canvas.height)) {
-            setTimeout(function(){isRunning = true;}, 150);
+            setTimeout(function(){isRunning = true;}, 0.01);
         }
         // console.log(speed, goingUp);
     }
 
-},10);
+},8.5);
 
 
 function drawBoy() {
