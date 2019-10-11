@@ -6,6 +6,9 @@ let step = 0;
 let speed, goingUp;
 let gravity = 0.1;
 
+// let gameSpeed = 8.5;
+let gameSpeed = 10;
+
 window.addEventListener('resize', resizeCanvas, false);
 
 resizeCanvas();
@@ -28,63 +31,68 @@ function init() {
 init();
 
 function checkCollision() {
-    
+
     let vp = Math.max(canvas.width, canvas.height) / 100;
     console.log(vp);
 
-    if ( boy.x + vp + 2 < dogs[0].x + 4 * vp && dogs[0].x + 4 * vp < boy.x + boy.height - vp + 2){
-        if (boy.y + vp < dogs[0].y + vp + 5 && dogs[0].y + vp + 5 < boy.y + boy.width - vp){
-            console.log("1TRUE");
-            return true;
+    if (dogs.length != 0){
+        if (boy.x < dogs[0].x && dogs[0].x < boy.x + boy.height - boy.height / 3) {
+            if (boy.y < dogs[0].y && dogs[0].y < boy.y + boy.width) {
+                console.log("1TRUE");
+                return true;
+            }
         }
-    }
-    if ( boy.x + vp + 2 < dogs[0].x + dogs[0].w + 4 * vp && dogs[0].x + dogs[0].w + 3 * vp < boy.x + boy.height + vp + 2){
-        if (boy.y + vp < dogs[0].y + vp + 5 && dogs[0].y + vp + 5 < boy.y + boy.width - vp){
-            console.log("2TRUE");
-            return true;
-        }
-    }
-
-    if ( boy.x - vp + 2 < shavars[0].x + vp * 3 && shavars[0].x + vp * 3 < boy.x + boy.height - vp + 2 ){
-        if (boy.y < shavars[0].y && shavars[0].y < boy.y + boy.width - vp){
-            console.log("COLL SHAVAR1");
-            return true;
+        if (boy.x + boy.height / 10 < dogs[0].x + dogs[0].w - dogs[0].w / 3 && dogs[0].x + dogs[0].w - dogs[0].w / 3 < boy.x + boy.height - boy.height / 3) {
+            if (boy.y < dogs[0].y && dogs[0].y < boy.y + boy.width) {
+                console.log("2TRUE");
+                return true;
+            }
         }
     }
 
-    if ( boy.x - vp + 2 < shavars[0].x + shavars[0].w + vp * 3  && shavars[0].x + shavars[0].w - vp * 2  + vp * 3 < boy.x + boy.height - vp + 2){
-        if (boy.y < shavars[0].y  && shavars[0].y < boy.y + boy.width - vp){
-            console.log("COLL SHAVAR2");
-            return true;
+    if (shavars.length != 0){
+        if (boy.x < shavars[0].x && shavars[0].x < boy.x + boy.height - boy.height / 3) {
+            if (boy.y < shavars[0].y && shavars[0].y < boy.y + boy.width) {
+                console.log("COLL SHAVAR1");
+                return true;
+            }
+        }
+        if (boy.x + boy.height / 10 < shavars[0].x + shavars[0].w && shavars[0].x + shavars[0].w < boy.x + boy.height - boy.height / 3) {
+            if (boy.y < shavars[0].y && shavars[0].y < boy.y + boy.width) {
+                console.log("COLL SHAVAR2");
+                return true;
+            }
         }
     }
 
+    if (nvhs.length != 0){
+        if (boy.x < nvhs[0].x && nvhs[0].x < boy.x + boy.height - boy.height / 3) {
+            if (boy.y < nvhs[0].y && nvhs[0].y < boy.y + boy.width) {
+                console.log("COLL NUH");
+                return true;
+            }
+        }
 
-    if ( boy.x < nvhs[0].x + vp * 3 && nvhs[0].x + vp * 3 < boy.x + boy.height - vp + 2){
-        if (boy.y < nvhs[0].y && nvhs[0].y < boy.y + boy.width - vp){
-            console.log("COLL NUH");
-            return true;
+        if (boy.x + boy.height / 10 < nvhs[0].x + nvhs[0].w - vp && nvhs[0].x + nvhs[0].w - vp < boy.x + boy.height - boy.height / 3) {
+            if (boy.y < nvhs[0].y && nvhs[0].y < boy.y + boy.width) {
+                console.log("COLL NUH");
+                return true;
+            }
         }
     }
-
-    if ( boy.x < nvhs[0].x + nvhs[0].w + vp * 3 && nvhs[0].x + nvhs[0].w + vp * 3 < boy.x + boy.height - vp + 2){
-        if (boy.y < nvhs[0].y && nvhs[0].y < boy.y + boy.width - vp){
-            console.log("COLL NUH");
-            return true;
-        }
-    }
-    return false; 
+    return false;
 }
+let random = 0;
 var drawInterval = setInterval(() => {
 
     // cloud movements
     clouds.forEach(element => {
         element.x -= 1;
-        
+
     });
 
     lands.forEach(element => {
-       element.x -= 3;
+        element.x -= 3;
     })
 
     baishins.forEach(element => {
@@ -130,22 +138,27 @@ var drawInterval = setInterval(() => {
 
     /* baishin oruulsan heseg */
     //ctx.drawImage(imgBaishin, xbaishin, ybaishin, imgBaishin.width, imgBaishin.height)
-   
+
     drawLands();
     drawStatus();
     drawGeruud();
     drawBlueskys();
     drawBaishins();
-    drawNvhs();
+
     drawClouds();
     drawHiids();
     drawLamps();
-    drawShavars();
-    drawDogs(); 
     drawBoy();
-  
+
+    drawDogs();
+    drawNvhs();
+    drawShavars();
     
-    if (isRunning == false){
+  
+
+
+
+    if (isRunning == false) {
         if (goingUp) {
             speed = Math.max(0, speed - gravity);
             if (speed == 0)
@@ -158,41 +171,41 @@ var drawInterval = setInterval(() => {
         }
 
         if (boy.y == 0.65 * parseInt(canvas.height)) {
-            setTimeout(function(){isRunning = true;}, 0.01);
+            setTimeout(function () { isRunning = true; }, 0.01);
         }
         // console.log(speed, goingUp);
     }
-}
+}, gameSpeed);
 
-,8.5);
 
 
 
 
 function drawBoy() {
     if (checkCollision()) {
-        
+
         stopGame();
         return true;
     }
-    if (isRunning){
-        if (step > 2) {step = 0;}
+    if (isRunning) {
+        if (step > 2) { step = 0; }
 
-        if (localStorage.getItem("gender") == "boy")
+        if (localStorage.getItem("gender") == "boy"){
             ctx.drawImage(boyWalk[step], boy.x, boy.y, boy.height, boy.width);
+        }    
         else
             ctx.drawImage(girlWalk[step], boy.x, boy.y, boy.height, boy.width);
 
         if (time % 16 == 0)
             step++;
-     time++;
+        time++;
     } else {
 
-        if(step > 2){
+        if (step > 2) {
 
         }
 
-        if(step > 3){
+        if (step > 3) {
             // isRunning = true;
             step = 0;
         }
@@ -202,18 +215,19 @@ function drawBoy() {
         else
             zurag.src = "./images/girl-jump-1.png";
 
-        if(step == 0){
+        if (step == 0) {
             ctx.drawImage(zurag, boy.x, boy.y, boy.height - 9, boy.width);
+
         }
 
-        var zurag1= new Image();
+        var zurag1 = new Image();
         if (localStorage.getItem("gender") == "boy")
             zurag1.src = "./images/boy-jump-2.png";
         else
             zurag1.src = "./images/girl-jump-2.png";
 
-        if(step == 1){
-        ctx.drawImage(zurag1, boy.x, boy.y, boy.height -9, boy.width);
+        if (step == 1) {
+            ctx.drawImage(zurag1, boy.x, boy.y, boy.height - 9, boy.width);
         }
 
         var zurag2 = new Image();
@@ -222,9 +236,9 @@ function drawBoy() {
         else
             zurag2.src = "./images/girl-jump-3.png";
 
-        if(step == 2){
-        ctx.drawImage(zurag2, boy.x, boy.y, boy.height + 13 , boy.width);
-        } 
+        if (step == 2) {
+            ctx.drawImage(zurag2, boy.x, boy.y, boy.height + 13, boy.width);
+        }
 
         var zurag3 = new Image();
         if (localStorage.getItem("gender") == "boy")
@@ -232,10 +246,10 @@ function drawBoy() {
         else
             zurag3.src = "./images/girl-jump-4.png";
 
-        if(step == 3){
+        if (step == 3) {
             ctx.drawImage(zurag3, boy.x, boy.y, boy.height + 50, boy.width);
-        }  
-        if(time % 32 == 0){
+        }
+        if (time % 32 == 0) {
             step++;
         }
         time++;
@@ -257,14 +271,14 @@ function usreh(){
     }
 }
 
-let onoo=0;
+let onoo = 0;
 var scoreInterval = setInterval(() => {
     onoo++;
     document.getElementById("onoo").innerHTML = onoo;
     localStorage.setItem("Onoo", onoo);
 }, 200);
 
-function stopGame(){
+function stopGame() {
     location.replace("gameover.html");
 }
 
@@ -280,7 +294,7 @@ function stopGame(){
     //             step++;
     //         }
     //         time++;
-            
+
     //     }
-    
+
     // }
