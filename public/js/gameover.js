@@ -1,9 +1,9 @@
 // import {onoo} from '../js/main.js';
 function test1(){
-    location.replace("index.html");
+    location.replace("game.html");
 }
 function test2(){
-    location.replace("menu.html");
+    location.replace("index.html");
 }
 var vOneLS = localStorage.getItem("Onoo");  
 var test=document.getElementById("score");
