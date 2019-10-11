@@ -52,7 +52,7 @@ function checkCollision() {
         }
     }
 
-    if ( boy.x - vp + 2 < shavars[0].x + shavars[0].w + vp * 3  && shavars[0].x + shavars[0].w  + vp * 3 < boy.x + boy.height - vp + 2){
+    if ( boy.x - vp + 2 < shavars[0].x + shavars[0].w + vp * 3  && shavars[0].x + shavars[0].w - vp * 2  + vp * 3 < boy.x + boy.height - vp + 2){
         if (boy.y < shavars[0].y  && shavars[0].y < boy.y + boy.width - vp){
             console.log("COLL SHAVAR2");
             return true;
@@ -143,7 +143,8 @@ var drawInterval = setInterval(() => {
     drawShavars();
     drawDogs(); 
     drawBoy();
-
+  
+    
     if (isRunning == false){
         if (goingUp) {
             speed = Math.max(0, speed - gravity);
@@ -161,8 +162,11 @@ var drawInterval = setInterval(() => {
         }
         // console.log(speed, goingUp);
     }
+}
 
-},8.5);
+,8.5);
+
+
 
 
 function drawBoy() {
@@ -238,9 +242,9 @@ function drawBoy() {
     }
 
 }
-
-document.onkeyup = function (event) {
-    if (event.key == " " && isRunning == true) {
+document.getElementById('cvs').addEventListener("click", usreh);
+function usreh(){
+    if (isRunning == true) {
         console.log("JUMP");
         // isRunning = false;
         // isJumping = true;
