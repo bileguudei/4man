@@ -28,43 +28,47 @@ function init() {
 init();
 
 function checkCollision() {
-    if ( boy.x + 10 < dogs[0].x + 30 && dogs[0].x + 30 < boy.x + boy.height - 10){
-        if (boy.y + 10 < dogs[0].y + 15 && dogs[0].y + 15< boy.y + boy.width - 10){
+    
+    let vp = Math.max(canvas.width, canvas.height) / 100;
+    console.log(vp);
+
+    if ( boy.x + vp + 2 < dogs[0].x + 4 * vp && dogs[0].x + 4 * vp < boy.x + boy.height - vp + 2){
+        if (boy.y + vp < dogs[0].y + vp + 5 && dogs[0].y + vp + 5 < boy.y + boy.width - vp){
             console.log("1TRUE");
             return true;
         }
     }
-    if ( boy.x + 10 < dogs[0].x + dogs[0].w + 30 && dogs[0].x + dogs[0].w + 30 < boy.x + boy.height + 10){
-        if (boy.y + 10 < dogs[0].y + 15 && dogs[0].y + 15 < boy.y + boy.width - 10){
+    if ( boy.x + vp + 2 < dogs[0].x + dogs[0].w + 4 * vp && dogs[0].x + dogs[0].w + 3 * vp < boy.x + boy.height + vp + 2){
+        if (boy.y + vp < dogs[0].y + vp + 5 && dogs[0].y + vp + 5 < boy.y + boy.width - vp){
             console.log("2TRUE");
             return true;
         }
     }
 
-    if ( boy.x - 10 < shavars[0].x + 20 && shavars[0].x + 20 < boy.x + boy.height - 10 ){
-        if (boy.y < shavars[0].y && shavars[0].y < boy.y + boy.width - 10 ){
+    if ( boy.x - vp + 2 < shavars[0].x + vp * 3 && shavars[0].x + vp * 3 < boy.x + boy.height - vp + 2 ){
+        if (boy.y < shavars[0].y && shavars[0].y < boy.y + boy.width - vp){
             console.log("COLL SHAVAR1");
             return true;
         }
     }
 
-    if ( boy.x - 10 < shavars[0].x + shavars[0].w + 20  && shavars[0].x + shavars[0].w  + 20 < boy.x + boy.height - 10){
-        if (boy.y < shavars[0].y  && shavars[0].y < boy.y + boy.width - 10){
+    if ( boy.x - vp + 2 < shavars[0].x + shavars[0].w + vp * 3  && shavars[0].x + shavars[0].w  + vp * 3 < boy.x + boy.height - vp + 2){
+        if (boy.y < shavars[0].y  && shavars[0].y < boy.y + boy.width - vp){
             console.log("COLL SHAVAR2");
             return true;
         }
     }
 
 
-    if ( boy.x < nvhs[0].x + 20 && nvhs[0].x + 20 < boy.x + boy.height - 10){
-        if (boy.y < nvhs[0].y && nvhs[0].y < boy.y + boy.width - 10){
+    if ( boy.x < nvhs[0].x + vp * 3 && nvhs[0].x + vp * 3 < boy.x + boy.height - vp + 2){
+        if (boy.y < nvhs[0].y && nvhs[0].y < boy.y + boy.width - vp){
             console.log("COLL NUH");
             return true;
         }
     }
 
-    if ( boy.x < nvhs[0].x + nvhs[0].w + 20 && nvhs[0].x + nvhs[0].w + 20 < boy.x + boy.height - 10){
-        if (boy.y < nvhs[0].y && nvhs[0].y < boy.y + boy.width - 10){
+    if ( boy.x < nvhs[0].x + nvhs[0].w + vp * 3 && nvhs[0].x + nvhs[0].w + vp * 3 < boy.x + boy.height - vp + 2){
+        if (boy.y < nvhs[0].y && nvhs[0].y < boy.y + boy.width - vp){
             console.log("COLL NUH");
             return true;
         }
