@@ -175,12 +175,10 @@ var drawInterval = setInterval(() => {
         }
         // console.log(speed, goingUp);
     }
-}
-
-,8.5);
-
-
 }, gameSpeed);
+
+
+
 
 
 function drawBoy() {
