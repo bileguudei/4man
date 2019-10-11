@@ -175,6 +175,10 @@ var drawInterval = setInterval(() => {
         }
         // console.log(speed, goingUp);
     }
+}
+
+,8.5);
+
 
 }, gameSpeed);
 
@@ -254,9 +258,9 @@ function drawBoy() {
     }
 
 }
-
-document.onkeyup = function (event) {
-    if (event.key == " " && isRunning == true) {
+document.getElementById('cvs').addEventListener("click", usreh);
+function usreh(){
+    if (isRunning == true) {
         console.log("JUMP");
         // isRunning = false;
         // isJumping = true;
