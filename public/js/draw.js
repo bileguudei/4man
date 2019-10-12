@@ -228,13 +228,15 @@ function drawShavars() {
         }
     });
 
-    if (shavars.length == 0) {
-        let xPos = Math.round(3 * canvas.width + canvas.width * Math.random());
+    if (obs2 == true && nvhs.length == 0) {
+        let xPos = Math.round(canvas.width + 0.5 * canvas.width * Math.random());
         let yPos = 0.85 * parseInt(canvas.height);
         let w = 0.12 * parseInt(canvas.height) * 1;
         let h = 0.07 * parseInt(canvas.height);
-        shavars.push({ x: xPos, y: yPos, w: w, h: h })
-    }  
+        shavars.push({ x: xPos, y: yPos, w: w, h: h });
+        obs1 = true;
+        obs2 = false;
+    }
 }
 
 
@@ -248,11 +250,13 @@ function drawNvhs() {
         }
     });
 
-    if (nvhs.length == 0) {
-        let xPos = Math.round(4.5 * canvas.width + canvas.width * Math.random());
+    if (obs1 == true && shavars.length == 0) {
+        let xPos = Math.round(canvas.width + 0.5 * canvas.width * Math.random());
         let yPos = 0.85 * parseInt(canvas.height);
         let w = 0.12 * parseInt(canvas.height) * 1;
         let h = 0.07 * parseInt(canvas.height);
-        nvhs.push({ x: xPos, y: yPos, w: w, h: h })
+        nvhs.push({ x: xPos, y: yPos, w: w, h: h });
+        obs1 = false;
+        obs2 = true;
     }
 }
