@@ -4,7 +4,13 @@ body{
     width: 100vw;
     overflow: hidden;
 }
-
+.homeway{
+    background-image: url('../images/homeway.png');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
 .fullpage {
     background-image: url('../images/background-menu.png');
     background-size: cover;
@@ -27,6 +33,13 @@ body{
     background-size: cover;
     height: 50vh;
     width: 50vh;
+}
+.nest{
+    background-image: url('../images/nest.png');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    display: flex;
 }
 
 @media only screen and (orientation:portrait){  

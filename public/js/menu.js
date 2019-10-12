@@ -6,14 +6,21 @@ if ('serviceWorker' in navigator) {
     });
 }
 
+function neest (){
+    location.replace("game.html");
+}
+function meenu(){
+    location.replace("index.html");
+}
+
 
 function playBoy(){
     localStorage.setItem("gender", "boy");
-    location.replace("game.html");
+    location.replace("nest.html");
 }
 
 
 function playGirl(){
     localStorage.setItem("gender", "girl");
-    location.replace("game.html");
+    location.replace("nest.html");
 }
