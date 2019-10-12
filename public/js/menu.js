@@ -5,10 +5,10 @@ function meenu(){
 
  function playBoy(){
     localStorage.setItem("gender", "boy");
-    location.replace("nest.html");
+    location.replace("game.html");
 }
 
  function playGirl(){
     localStorage.setItem("gender", "girl");
-    location.replace("nest.html");
+    location.replace("game.html");
 }
