@@ -14,13 +14,12 @@ function meenu(){
 }
 
 
-function playBoy(){
+ function playBoy(){
     localStorage.setItem("gender", "boy");
     location.replace("nest.html");
 }
 
-
-function playGirl(){
+ function playGirl(){
     localStorage.setItem("gender", "girl");
     location.replace("nest.html");
 }
