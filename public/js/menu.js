@@ -7,13 +7,12 @@ if ('serviceWorker' in navigator) {
 }
 
 
-function playBoy(){
+ function playBoy(){
     localStorage.setItem("gender", "boy");
     location.replace("game.html");
 }
 
-
-function playGirl(){
+ function playGirl(){
     localStorage.setItem("gender", "girl");
     location.replace("game.html");
 }

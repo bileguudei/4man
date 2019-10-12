@@ -1,3 +1,4 @@
+let audioPlay = false;
 
 let isRunning = true;
 let isJumping = false;
@@ -268,6 +269,14 @@ function usreh(){
         speed = 0.01 * canvas.height;
         gravity = 0.0003 * canvas.height;
         goingUp = true;
+    }
+
+    if (audioPlay == false){
+        const duu = new Audio();
+        duu.src = "gametheme.mp3";
+        duu.play();
+        
+        audioPlay = true;
     }
 }
 
