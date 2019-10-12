@@ -288,7 +288,11 @@ var scoreInterval = setInterval(() => {
 }, 200);
 
 function stopGame() {
-    location.replace("gameover.html");
+    if(onoo>=100){
+            location.replace("ending.html");
+    }else{
+        location.replace("gameover.html");
+    }
 }
 
     // function jumpBoy(){   
