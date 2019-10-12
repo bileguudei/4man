@@ -8,6 +8,7 @@ function test2(){
 var vOneLS = localStorage.getItem("Onoo");  
 var test=document.getElementById("score");
 test.innerHTML=vOneLS;
+
 if (localStorage.getItem("gender") == "boy")
     document.getElementsByClassName('row')[0].style.backgroundImage = "url('./images/boy-head.png')";
 else

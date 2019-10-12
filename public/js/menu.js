@@ -1,5 +1,5 @@
 function meenu(){
-    location.replace("index.html");
+    location.replace("nest.html");
 }
 
 
