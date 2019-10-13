@@ -3,7 +3,7 @@ function test1(){
     location.replace("game.html");
 }
 function test2(){
-    location.replace("index.html");
+    location.replace("menu.html");
 }
 var vOneLS = localStorage.getItem("Onoo");  
 var test=document.getElementById("score");
