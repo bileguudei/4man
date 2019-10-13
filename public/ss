@@ -6,7 +6,6 @@
             border: solid;
         }
     </style>
-    <!-- <iframe src="gametheme.mp3" allow="autoplay" style="display:none" id="iframeAudio">asd</iframe>  -->
 </head>
 
 
@@ -20,33 +19,19 @@
     <hr />
 
     <button onclick="startGame()" id="startButton">Restart</button>
-    <audio id="myAudio" autoplay loop allow="autoplay">
-            <source type="audio/ogg">
+    <audio id="myAudio">
+            <source src="gametheme.ogg" type="audio/ogg">
             <source src="gametheme.mp3" type="audio/mpeg">
     </audio>
 
-    <button onclick="play()">play</button>
+
+    
     <script>
+        var music 
+        document.getElementById("myAudio").play();
 
-        const duu = new Audio();
-        duu.src = "gametheme.mp3";
-     
-
-        async function play() {
-            var promise = document.getElementById('myAudio').play();
-            if (promise !== undefined) {
-                promise.then(_ => {
-                    // Autoplay started!
-                }).catch(error => {
-                    console.log(error)
-                    // Autoplay was prevented.
-                    // Show a "Play" button so that user can start playback.
-                });
-            }
-        }
-        
-        play();
         startGame = () => {
+            
             stopGame = () => {
                 clearInterval(drawInterval);
                 clearInterval(scoreInterval);

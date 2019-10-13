@@ -1,10 +1,14 @@
-function playBoy(){
-    localStorage.setItem("gender", "boy");
-    location.replace("index.html");
+function meenu(){
+    location.replace("nest.html");
 }
 
 
-function playGirl(){
+ function playBoy(){
+    localStorage.setItem("gender", "boy");
+    location.replace("game.html");
+}
+
+ function playGirl(){
     localStorage.setItem("gender", "girl");
-    location.replace("index.html");
+    location.replace("game.html");
 }

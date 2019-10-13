@@ -7,6 +7,13 @@ body{
     justify-content: flex-start;
     align-items: center;
 }
+.tugsgul{
+    background-image: url('../images/tugsgul.png');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
 
 .fullpage {
     background-image: url('../images/background.png');
@@ -145,8 +152,8 @@ body{
     }
       
 }
-#score{
-    width: 50px;
-    height: 20px;
-    color: blue;
+#score {
+    color: white;
+    margin-bottom: 13vh;
+    font-size: 30px;
 }
