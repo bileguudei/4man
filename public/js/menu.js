@@ -1,9 +1,16 @@
+// Service Worker
+if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('/sw.js')
+    .then(function () {
+        console.log('Service Worker Registered');
+    });
+}
+
 function meenu(){
     location.replace("nest.html");
 }
 
-
- function playBoy(){
+function playBoy(){
     localStorage.setItem("gender", "boy");
     location.replace("game.html");
 }

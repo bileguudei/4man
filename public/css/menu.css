@@ -7,9 +7,9 @@ body{
 .homeway{
     background-image: url('../images/homeway.png');
     background-size: cover;
+    background-position-x: center;
     height: 100%;
     width: 100%;
-    display: flex;
 }
 .fullpage {
     background-image: url('../images/background-menu.png');
@@ -37,9 +37,17 @@ body{
 .nest{
     background-image: url('../images/nest.png');
     background-size: cover;
-    height: 100%;
+    background-position-x: center;
+    background-position-y: center;
+    height: 80%;
     width: 100%;
+}
+
+.black {
+    background-color: black;
     display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 @media only screen and (orientation:portrait){  
@@ -48,14 +56,21 @@ body{
         height: 100vw;
         transform: rotate(90deg);
         transform-origin: calc(50vw) calc(50vw);
-    } 
+    }
+
+    .homeway{
+        background-image: url('../images/homeway.png');
+        background-size: cover;
+        background-position-x: center;
+        height: 100%;
+        width: 100%;
+    }
 
     .login1 {
         background-image: url('../images/P_boylogin.png');
         background-size: cover;
         height: 25vh;
         width: 25vh;
-       
     }
 
     .login2 {
