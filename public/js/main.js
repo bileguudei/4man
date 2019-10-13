@@ -288,8 +288,11 @@ var scoreInterval = setInterval(() => {
 }, 200);
 
 function stopGame() {
-    if(onoo>=10){
+    if(onoo>=100){
+        if (localStorage.getItem("gender") == "boy")
             location.replace("ending.html");
+            else
+            location.replace("ending1.html");
     }else{
         location.replace("gameover.html");
     }

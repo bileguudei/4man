@@ -8,7 +8,14 @@ body{
     align-items: center;
 }
 .tugsgul{
-    background-image: url('../images/tugsgul.png');
+    background-image: url('../images/huugerteeharilaa.png');
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    display: flex;
+}
+.tugsgul1{
+    background-image: url('../images/ohingerteeharilaa.png');
     background-size: cover;
     height: 100%;
     width: 100%;
