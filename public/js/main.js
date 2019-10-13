@@ -325,7 +325,7 @@ var scoreInterval = setInterval(() => {
 }, 200);
 
 function stopGame() {
-    if(onoo>=100){
+    if(onoo>=10){
             location.replace("ending.html");
     }else{
         location.replace("gameover.html");
