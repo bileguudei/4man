@@ -34,7 +34,7 @@ function checkCollision() {
             return true;
         }
     }
-    if ( boy.x + 10 < dogs[0].x + dogs[0].w + 30 && dogs[0].x + dogs[0].w + 30 < boy.x + boy.height + 10){
+    if ( boy.x + 10 < dogs[0].x + dogs[0].w && dogs[0].x + dogs[0].w < boy.x + boy.height + 10){
         if (boy.y + 10 < dogs[0].y + 15 && dogs[0].y + 15 < boy.y + boy.width - 10){
             console.log("2TRUE");
             return true;
@@ -48,7 +48,7 @@ function checkCollision() {
         }
     }
 
-    if ( boy.x - 10 < shavars[0].x + shavars[0].w + 20  && shavars[0].x + shavars[0].w  + 20 < boy.x + boy.height - 10){
+    if ( boy.x - 10 < shavars[0].x + shavars[0].w - 10  && shavars[0].x + shavars[0].w - 10 < boy.x + boy.height - 10){
         if (boy.y < shavars[0].y  && shavars[0].y < boy.y + boy.width - 10){
             console.log("COLL SHAVAR2");
             return true;
@@ -63,7 +63,7 @@ function checkCollision() {
         }
     }
 
-    if ( boy.x < nvhs[0].x + nvhs[0].w + 20 && nvhs[0].x + nvhs[0].w + 20 < boy.x + boy.height - 10){
+    if ( boy.x < nvhs[0].x + nvhs[0].w - 10 && nvhs[0].x + nvhs[0].w - 10 < boy.x + boy.height - 10){
         if (boy.y < nvhs[0].y && nvhs[0].y < boy.y + boy.width - 10){
             console.log("COLL NUH");
             return true;
@@ -158,7 +158,7 @@ var drawInterval = setInterval(() => {
         // console.log(speed, goingUp);
     }
 
-},10);
+},8.5);
 
 
 function drawBoy() {
@@ -227,7 +227,7 @@ function drawBoy() {
         if(step == 3){
             ctx.drawImage(zurag3, boy.x, boy.y, boy.height + 50, boy.width);
         }  
-        if(time % 32 == 0){
+        if(time % 25 == 0){
             step++;
         }
         time++;
@@ -236,10 +236,8 @@ function drawBoy() {
 }
 
 document.onkeyup = function (event) {
-    if (event.key == " " && isRunning == true) {
+    if (event.key == " ") {
         console.log("JUMP");
-        // isRunning = false;
-        // isJumping = true;
         time = 0;
         step = 0;
         isRunning = false;
